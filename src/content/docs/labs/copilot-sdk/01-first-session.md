@@ -28,23 +28,59 @@ At this point, the console app is simply `CopilotClient -> CopilotSession -> mod
 
 ## Fire up your first Copilot session
 
-Open `workshop-app/Program.cs` and **replace the entire file**:
+Open `workshop-app/Program.cs`. Build the program in the following small additions so you can see where each responsibility belongs.
+
+### 1. Import the SDK and add a heading
+
+Replace the starter file contents with:
 
 ```csharp
 using GitHub.Copilot;
 
 Console.WriteLine("=== First Copilot session ===\n");
+```
 
+`using GitHub.Copilot;` makes the SDK types available. The heading separates the workshop output from the commands you run in the terminal.
+
+### 2. Connect to the Copilot runtime
+
+Add this below the heading:
+
+```csharp
 await using var client = new CopilotClient();
 await client.StartAsync();
+```
 
+`CopilotClient` manages the application-wide connection to the local Copilot CLI runtime. `StartAsync` launches or connects to that runtime before any requests are sent.
+
+### 3. Confirm the connection
+
+Add this next:
+
+```csharp
 var ping = await client.PingAsync("workshop");
 Console.WriteLine($"Connected to the Copilot runtime: {ping.Message}");
+```
 
+`PingAsync` performs a lightweight health check, giving you an immediate confirmation that the app can reach Copilot. Print the returned message so connection failures are obvious before you create a session.
+
+### 4. Create a conversation and send a prompt
+
+Add the session and request:
+
+```csharp
 await using var session = await client.CreateSessionAsync(new SessionConfig());
 var response = await session.SendAndWaitAsync(
     "In one sentence, explain why an accessible name matters for a form input.");
+```
 
+A `CopilotSession` owns one conversation and its context. `SendAndWaitAsync` sends the prompt and waits until the session is idle, which is ideal when you need one completed answer.
+
+### 5. Check and print the response
+
+Finish the program with:
+
+```csharp
 if (response is null)
 {
     throw new InvalidOperationException("Copilot completed without an assistant message.");
@@ -53,8 +89,7 @@ if (response is null)
 Console.WriteLine($"\nCopilot: {response.Data.Content}");
 ```
 
-`PingAsync` checks the runtime connection. `SendAndWaitAsync` sends the prompt and returns after the
-session becomes idle, so it works well when you only need the completed answer.
+The guard fails clearly if Copilot finishes without an assistant message. Otherwise, print the message content so you can inspect the response in the terminal.
 
 ## Run it
 

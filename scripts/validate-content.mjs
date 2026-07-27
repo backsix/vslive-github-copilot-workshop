@@ -126,6 +126,22 @@ if (commitSummaryLesson.includes('Tools -> Options -> GitHub -> Copilot')) {
   errors.push('Visual Studio commit-message lesson must use copilot-instructions.md, not Tools options.');
 }
 
+const firstSdkSession = readFileSync(
+  join(docsRoot, 'labs', 'copilot-sdk', '01-first-session.md'),
+  'utf8'
+);
+for (const [index, heading] of [
+  'Import the SDK and add a heading',
+  'Connect to the Copilot runtime',
+  'Confirm the connection',
+  'Create a conversation and send a prompt',
+  'Check and print the response'
+].entries()) {
+  if (!firstSdkSession.includes(`### ${index + 1}. ${heading}`)) {
+    errors.push(`Missing incremental first-session step: ${heading}`);
+  }
+}
+
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exit(1);
