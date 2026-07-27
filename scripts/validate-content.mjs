@@ -18,8 +18,15 @@ const errors = [];
 
 const favicon = readFileSync(join(root, 'public', 'favicon.svg'), 'utf8');
 const headerMark = readFileSync(join(root, 'src', 'assets', 'mark.svg'), 'utf8');
+const targetAppIndex = join(root, 'public', 'target-app', 'index.html');
+const targetAppStyles = join(root, 'public', 'target-app', 'app.css');
 if (favicon !== headerMark) {
   errors.push('The public favicon and Starlight header mark must stay identical.');
+}
+if (!existsSync(targetAppIndex) || !existsSync(targetAppStyles)) {
+  errors.push('The deployed SDK target app is missing.');
+} else if (!readFileSync(targetAppIndex, 'utf8').includes('Accessibility Report Target')) {
+  errors.push('The deployed SDK target app is incomplete.');
 }
 
 const findMalformedTaskMarkers = (markdown) => {
@@ -139,6 +146,21 @@ for (const [index, heading] of [
 ].entries()) {
   if (!firstSdkSession.includes(`### ${index + 1}. ${heading}`)) {
     errors.push(`Missing incremental first-session step: ${heading}`);
+  }
+}
+
+const hostedTargetAppUrl =
+  'https://jamesmontemagno.github.io/vslive-github-copilot-workshop/target-app/';
+for (const name of [
+  '00-preflight.md',
+  '04-mcp-safety.md',
+  '05-combine-tools.md',
+  '06-structured-report.md',
+  '07-run-explain.md'
+]) {
+  const markdown = readFileSync(join(docsRoot, 'labs', 'copilot-sdk', name), 'utf8');
+  if (!markdown.includes(hostedTargetAppUrl)) {
+    errors.push(`SDK lesson must use the hosted target app: ${name}`);
   }
 }
 

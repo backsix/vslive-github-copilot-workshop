@@ -25,6 +25,8 @@ const cachedRoot =
 const temporaryRoot = cachedRoot ? null : mkdtempSync(join(tmpdir(), 'vslive-workshops-'));
 const contentRoot = join(root, 'src', 'content', 'docs', 'labs');
 const labsRoot = join(root, 'labs');
+const targetAppUrl =
+  'https://jamesmontemagno.github.io/vslive-github-copilot-workshop/target-app/';
 
 const cleanTargets = [
   join(contentRoot, 'cli'),
@@ -32,6 +34,7 @@ const cleanTargets = [
   join(contentRoot, 'visual-studio'),
   join(contentRoot, 'copilot-sdk'),
   join(contentRoot, '_images'),
+  join(root, 'public', 'target-app'),
   join(labsRoot, '01-copilot-cli'),
   join(labsRoot, '02-copilot-app'),
   join(labsRoot, '03-visual-studio'),
@@ -407,7 +410,7 @@ code .
       ],
       [
         /\{\{TARGET_APP_URL\}\}/g,
-        'https://jamesmontemagno.github.io/copilot-sdk-workshop/target-app/'
+        targetAppUrl
       ],
       [
         /## Fire up your first Copilot session[\s\S]*?session becomes idle, so it works well when you only need the completed answer\./,
@@ -478,6 +481,10 @@ The guard fails clearly if Copilot finishes without an assistant message. Otherw
       ]
     ]
   }
+);
+copyTree(
+  join(sources['copilot-sdk'], 'docs', 'target-app'),
+  join(root, 'public', 'target-app')
 );
 
 for (const template of ['visual-studio', 'copilot-sdk']) {
