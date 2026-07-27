@@ -16,6 +16,12 @@ const required = [
 ];
 const errors = [];
 
+const favicon = readFileSync(join(root, 'public', 'favicon.svg'), 'utf8');
+const headerMark = readFileSync(join(root, 'src', 'assets', 'mark.svg'), 'utf8');
+if (favicon !== headerMark) {
+  errors.push('The public favicon and Starlight header mark must stay identical.');
+}
+
 const findMalformedTaskMarkers = (markdown) => {
   const malformed = [];
   let fence = null;
