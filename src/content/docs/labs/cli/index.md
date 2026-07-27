@@ -21,14 +21,15 @@ Follow the CLI instructions throughout this edition. Parts 1–5 form the facili
 Before you begin, verify:
 
 - [ ] GitHub Copilot is enabled for your account
-- [ ] Node.js installed
-- [ ] Git installed and configured
+- [ ] [Node.js 22 or 24](https://nodejs.org/) installed
+- [ ] [Git](https://git-scm.com/downloads) installed and configured
+- [ ] [Visual Studio Code](https://code.visualstudio.com/) installed
 - [ ] Your browser and terminal are both ready
 
 
 
 
-- [ ] GitHub Copilot CLI installed and available as `copilot`
+- [ ] [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) installed and available as `copilot`
 - [ ] Authenticated in the CLI with `/login`
 - [ ] Comfortable using slash commands like `/help`, `/plan`, and `/review`
 

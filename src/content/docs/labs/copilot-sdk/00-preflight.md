@@ -17,6 +17,7 @@ starter project built, and Playwright MCP downloaded and ready.
 | [.NET 10 SDK](https://learn.microsoft.com/dotnet/core/install/) | Builds and runs the C# console application | `dotnet --version` |
 | [Node.js 22 or newer](https://nodejs.org/) | Runs the Playwright MCP server | `node --version` |
 | [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli) | Provides the Copilot runtime used by the SDK | `copilot --version` |
+| [Visual Studio Code](https://code.visualstudio.com/) | Opens and edits the SDK lab folder | `code --version` |
 | [GitHub Copilot access](https://github.com/features/copilot) | Authorizes Copilot requests | `copilot login` |
 | Microsoft Edge (default) or Google Chrome | Lets Playwright inspect the target page | Open the browser once before the workshop |
 

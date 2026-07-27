@@ -19,8 +19,9 @@ Complete this checklist before Friday. Labs 1, 2, and 4 work on Windows, macOS, 
 | [Git](https://git-scm.com/downloads) | All labs | `git --version` |
 | [Node.js 22 or 24](https://nodejs.org/) | Labs 1, 2, and 4 | `node --version` |
 | [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli) | Labs 1 and 4 | `copilot --version` |
+| [Visual Studio Code](https://code.visualstudio.com/) | Labs 1 and 4 | `code --version` |
 | [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) | Labs 3 and 4 | `dotnet --version` |
-| Visual Studio 2026 | Lab 3 | Open Visual Studio |
+| [Visual Studio 2026](https://visualstudio.microsoft.com/vs/) | Lab 3 | Open Visual Studio |
 | Edge or Chrome | Browser-based verification | Open the browser once |
 
 ## Visual Studio 2026 setup
@@ -67,13 +68,13 @@ labs/
 
 ## Open the project for each lab
 
-Start each lab from the cloned workshop folder:
+Start each lab from the cloned workshop folder. Use [Visual Studio Code](https://code.visualstudio.com/) for the CLI and SDK labs, and [Visual Studio](https://visualstudio.microsoft.com/vs/) for the Visual Studio lab:
 
 | Lab | Open this project |
 |---|---|
 | Copilot CLI | Open a terminal in `labs/01-copilot-cli` and run `copilot` |
 | Copilot app | Create a separate repository from the [Tailspin Toys template](https://github.com/github-samples/tailspin-toys), then open it in the Copilot app |
-| Visual Studio 2026 | Open `labs/03-visual-studio/src/TinyShop.sln` in Visual Studio |
+| Visual Studio 2026 | Open `labs/03-visual-studio/src/TinyShop.sln` in [Visual Studio](https://visualstudio.microsoft.com/vs/) |
 | Copilot SDK | Open `labs/04-copilot-sdk` in your editor and terminal |
 
 Tailspin Toys is intentionally separate because the Copilot app exercises use its repository-backed issues, branches, and pull requests. Its Lesson 0 walks you through creating that repository.

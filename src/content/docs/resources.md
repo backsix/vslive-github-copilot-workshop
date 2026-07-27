@@ -28,4 +28,6 @@ Lesson content and starter projects are pinned to the exact upstream commits lis
 - [GitHub Copilot documentation](https://docs.github.com/copilot)
 - [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli)
 - [GitHub Copilot SDK](https://github.com/github/copilot-sdk)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Visual Studio](https://visualstudio.microsoft.com/vs/)
 - [Visual Studio GitHub Copilot](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-extension)

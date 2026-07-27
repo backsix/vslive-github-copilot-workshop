@@ -34,6 +34,7 @@ Before attending this workshop, please ensure you have:
 - [ ] A GitHub account with an active **Copilot Student, Pro, Pro+, Business, or Enterprise** plan
 - [ ] A computer running **macOS, Linux, or Windows**
 - [ ] [Git installed][install-git] on your computer
+- [ ] [Node.js 22 or newer][nodejs] installed on your computer
 
 > [!TIP]
 > No paid plan? Verified students can get GitHub Copilot for free through [GitHub Education][callout-student-plan-education]. The **Copilot Student** plan includes the agent, MCP, code review, and Copilot CLI features this workshop uses — so you can complete every harness with it.
@@ -58,4 +59,5 @@ Before attending this workshop, please ensure you have:
 [ex7]: 7-canvases/
 [ex8]: 8-review/
 [install-git]: https://github.com/git-guides/install-git
+[nodejs]: https://nodejs.org/
 [callout-student-plan-education]: https://github.com/education/students

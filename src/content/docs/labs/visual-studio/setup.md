@@ -2,14 +2,14 @@
 title: "Workshop Setup"
 ---
 
-To complete this workshop you will need Visual Studio 2026, the .NET 10 SDK, and a GitHub account with access to GitHub Copilot.
+To complete this workshop you will need [Visual Studio 2026](https://visualstudio.microsoft.com/vs/), the [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0), and a GitHub account with access to GitHub Copilot.
 
 ## Prerequisites
 
 Before starting, ensure you have:
 
-- **Visual Studio 2026** with the GitHub Copilot extension installed
-- **.NET 10 SDK** installed
+- [Visual Studio 2026](https://visualstudio.microsoft.com/vs/) with the GitHub Copilot extension installed
+- [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed
 - **GitHub account** with one of the following:
   - [GitHub Copilot Free](https://github.com/features/copilot) - Free tier with limited usage
   - [GitHub Copilot Pro/Pro+/Max](https://github.com/features/copilot) - Full access
