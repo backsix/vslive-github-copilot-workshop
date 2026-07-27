@@ -4,6 +4,8 @@ title: "Part 03: Referencing Code Files in Chat"
 
 In this section, you'll learn how to reference existing code files in your chat conversations.
 
+## Add the relevant files to context
+
 1. [ ] Open the **Products.razor** again from the **Store** project.
 1. [ ] Ensure that GitHub Copilot Chat is open by clicking on the Github Copilot Chat in the top-right corner of Visual Studio and select **Open Chat Window** or press `Ctrl+\+C` if Copilot chat isn't open.
 
@@ -16,6 +18,8 @@ In this section, you'll learn how to reference existing code files in your chat 
 1. Change the mode to `Ask`
 
 	![Change to chat](./images/0-ask-mode.png)
+
+## Ask a project-aware question
 
 1. [ ] Type: `#ProductService.cs` to reference the ProductService file.
 1. [ ] Ask: `How would I implement getting and visualizing the products in a table using the code in #ProductService and the css required.`

@@ -4,11 +4,16 @@ title: "Part 00: Exploring the Codebase with GitHub Copilot Chat"
 
 GitHub Copilot Chat allows you to ask questions about your code and get intelligent responses.
 
+## Open Copilot Chat in Ask mode
+
 1. [ ] Open the solution in Visual Studio 2026 if it is not already open.
 1. Click on the GitHub Copilot Chat in the top-right corner of Visual Studio and select **Open Chat Window** or press `Ctrl+\+C` if Copilot chat isn't open.
    ![Open chat window dialog](./images/1-open-copilot-chat.png)
 1. [ ] Ensure that you are in **Ask** mode by clicking on the **Ask** tab at the bottom of the chat window.
    ![Ask mode tab](./images/0-ask-mode.png)
+
+## Explore the solution architecture
+
 1. [ ] Try asking questions about the project structure:
    - `What projects are in this solution and how do things work together?`
    - `How does the Products API work?`

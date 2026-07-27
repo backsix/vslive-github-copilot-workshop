@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { extname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { knowledgeChecks } from './knowledge-checks.mjs';
+import { lessonSections } from './lesson-sections.mjs';
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const docsRoot = join(root, 'src', 'content', 'docs');
@@ -71,6 +72,29 @@ for (const [path, check] of Object.entries(knowledgeChecks)) {
   }
   if (!markdown.includes(check.question) || !markdown.includes(check.sourceUrl)) {
     errors.push(`Incomplete knowledge check in ${path}`);
+  }
+}
+
+for (const [path, sections] of Object.entries(lessonSections)) {
+  const fullPath = join(docsRoot, 'labs', path);
+  if (!existsSync(fullPath)) {
+    errors.push(`Missing sectioned lesson: ${path}`);
+    continue;
+  }
+  const markdown = readFileSync(fullPath, 'utf8');
+  for (const section of sections) {
+    if (!markdown.includes(`## ${section.heading}`)) {
+      errors.push(`Missing "${section.heading}" section in ${path}`);
+    }
+  }
+}
+
+const visualStudioRoot = join(docsRoot, 'labs', 'visual-studio');
+for (const name of readdirSync(visualStudioRoot).filter((name) => /^part\d+.*\.md$/.test(name))) {
+  const markdown = readFileSync(join(visualStudioRoot, name), 'utf8');
+  const sectionCount = [...markdown.matchAll(/^##\s+/gm)].length;
+  if (sectionCount < 2) {
+    errors.push(`Visual Studio lesson needs at least two sections: ${name}`);
   }
 }
 

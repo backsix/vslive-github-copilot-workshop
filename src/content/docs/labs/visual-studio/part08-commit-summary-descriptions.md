@@ -4,6 +4,8 @@ title: "Part 08: Commit Summary Descriptions"
 
 In this section, you'll learn how to use GitHub Copilot to generate commit messages and customize them.
 
+## Generate a commit message
+
 1. [ ] Open the **Git Changes** view in Visual Studio (**View -> Git Changes**).
 1. [ ] Select the sparkle emoji pencil button to automatically generate a commit message using Copilot.
 

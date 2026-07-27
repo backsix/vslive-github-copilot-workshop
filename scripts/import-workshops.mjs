@@ -13,6 +13,7 @@ import { tmpdir } from 'node:os';
 import { basename, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { knowledgeChecks } from './knowledge-checks.mjs';
+import { lessonSections } from './lesson-sections.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const manifest = JSON.parse(readFileSync(join(root, 'workshops.sources.json'), 'utf8'));
@@ -170,6 +171,28 @@ ${check.answer}
   return markdown.replace(marker, `${block}\n\n$&`);
 };
 
+const addLessonSections = (markdown, destinationFile) => {
+  const key = destinationFile
+    .slice(contentRoot.length + 1)
+    .replaceAll('\\', '/');
+  const sections = lessonSections[key];
+  if (!sections) return markdown;
+
+  for (const section of sections) {
+    if (markdown.includes(`## ${section.heading}`)) continue;
+    if (!markdown.includes(section.before)) {
+      throw new Error(`Could not place "${section.heading}" in ${key}`);
+    }
+    const insertionIndex = markdown.indexOf(section.before);
+    const prefix = markdown.slice(0, insertionIndex);
+    const spacer = prefix.endsWith('\n\n') ? '' : '\n';
+    markdown =
+      `${prefix}${spacer}## ${section.heading}\n\n${section.before}` +
+      markdown.slice(insertionIndex + section.before.length);
+  }
+  return markdown;
+};
+
 const normalizeMarkdown = (sourceFile, destinationFile, options = {}) => {
   let markdown = readFileSync(sourceFile, 'utf8')
     .replace(/^\uFEFF/, '')
@@ -208,8 +231,9 @@ const normalizeMarkdown = (sourceFile, destinationFile, options = {}) => {
     );
   }
 
-  markdown = addKnowledgeCheck(markdown, destinationFile);
   markdown = normalizeTaskMarkers(markdown);
+  markdown = addLessonSections(markdown, destinationFile);
+  markdown = addKnowledgeCheck(markdown, destinationFile);
   mkdirSync(dirname(destinationFile), { recursive: true });
   writeFileSync(destinationFile, markdown.trimEnd() + '\n');
 };

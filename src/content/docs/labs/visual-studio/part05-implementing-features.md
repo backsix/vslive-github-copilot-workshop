@@ -6,6 +6,8 @@ Previously we utilized Copilot Chat, which is great for working with an individu
 
 With Copilot Agent, you will add the files which need to be updated to the context. Once you provide the prompt, Copilot Agent will begin the updates across all files in the context. It also has the ability to create new files or add files to the context as it deems appropriate.
 
+## Implement the product listing
+
 Let's add the ability to see a list of images into the app:
 
 1. [ ] Open GitHub Copilot Chat in the top-right corner of Visual Studio and select **Open Chat Window** or press `Ctrl+\+C` if Copilot chat isn't open.
