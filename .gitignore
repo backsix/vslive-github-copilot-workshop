@@ -7,3 +7,4 @@ labs/**/node_modules/
 labs/**/bin/
 labs/**/obj/
 labs/**/dist/
+/labs/03-visual-studio/src/.vs/TinyShop
