@@ -189,6 +189,19 @@ Commit your skill files so the whole team gets the same automatic expertise.
 
 ---
 
+## Check your understanding
+
+Why is the `description` in a skill especially important?
+
+<details>
+<summary>Check your answer</summary>
+
+Copilot uses the description to decide whether a skill is relevant to the current request and should be loaded. A vague description makes activation unreliable, while a precise description names the task and conditions that should trigger the skill. This on-demand loading keeps specialized guidance out of unrelated conversations.
+
+**Go deeper:** [Add agent skills to Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills).
+
+</details>
+
 ## ✅ Part 7 Complete
 
 You've learned how to:

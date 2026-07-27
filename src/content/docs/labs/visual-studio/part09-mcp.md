@@ -77,6 +77,19 @@ The GitHub MCP server allows Copilot to interact with your GitHub repository. Le
 
 **Key Takeaway**: MCP servers extend GitHub Copilot's capabilities by connecting it to external services and documentation. This allows Copilot to provide more accurate, up-to-date information and perform actions like creating GitHub issues directly from the chat interface.
 
+## Check your understanding
+
+Why can enabling fewer MCP toolsets improve both response quality and security?
+
+<details>
+<summary>Check your answer</summary>
+
+Every enabled tool must be described in the model context, leaving less room for your code and conversation. A smaller toolset also makes it easier for Copilot to select the right capability and reduces the actions available if a prompt or server behaves unexpectedly. Enable the servers and tools relevant to the current task, then disable the rest.
+
+**Go deeper:** [Understand MCP toolset selection](https://docs.github.com/en/copilot/concepts/context/mcp).
+
+</details>
+
 ---
 
 [Back: Part 08 - Commit Summary Descriptions](../part08-commit-summary-descriptions/) | [Next: Part 10 - Planning Mode in Agent](../part10-planning-mode/)

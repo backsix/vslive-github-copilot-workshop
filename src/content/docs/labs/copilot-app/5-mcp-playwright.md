@@ -74,6 +74,19 @@ Congratulations, you used the Playwright MCP server to explore your feature in a
 
 Your feature is built, verified, and seen working. Now it's time to ship it — using **Agent Merge** to open and merge the pull request for you. Continue to [Lesson 6 - Merging with Agent Merge][next-lesson].
 
+## Check your understanding
+
+What does MCP enable, and why should you evaluate a server's trustworthiness before connecting it?
+
+<details>
+<summary>Check your answer</summary>
+
+MCP lets Copilot communicate with external tools and services, such as using Playwright to operate a real browser. Because an MCP server runs separately and can receive session context or perform actions on your machine, an untrusted server creates a meaningful security boundary. Verify the publisher and source, then grant only the capabilities the lesson requires.
+
+**Go deeper:** [Understand Model Context Protocol](https://docs.github.com/en/copilot/concepts/context/mcp).
+
+</details>
+
 ## Resources
 
 - [What the heck is MCP and why is everyone talking about it?][mcp-blog-post]

@@ -148,6 +148,19 @@ public void ImageUrl_SetValue_ReturnsExpectedValue(string imageUrl)
 
 **Key Takeaway**: Reusable prompt files help standardize how your team uses GitHub Copilot. By creating prompts for common tasks like unit testing, you ensure consistency and encode best practices that everyone on the team can benefit from.
 
+## Check your understanding
+
+When should a team create a prompt file instead of adding more content to `copilot-instructions.md`?
+
+<details>
+<summary>Check your answer</summary>
+
+`copilot-instructions.md` should contain durable project guidance that applies to every request. Prompt files are invoked on demand, can target a particular mode, and can accept inputs, making them better for repeatable workflows such as generating tests or scaffolding an endpoint. Keeping task-specific procedures in prompt files prevents the always-on instructions from becoming noisy.
+
+**Go deeper:** [Add repository instructions and prompt files](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions-in-your-ide/add-repository-instructions-in-your-ide).
+
+</details>
+
 ---
 
 [Back: Part 10 - Planning Mode in Agent](../part10-planning-mode/) ← | [Next: Part 12 - Delegate to the Cloud](../part12-delegate-to-cloud/) →

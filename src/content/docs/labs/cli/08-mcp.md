@@ -158,6 +158,19 @@ Commit your MCP configuration so your team shares the same connected tools.
 
 ---
 
+## Check your understanding
+
+Why should you review and limit an MCP server before connecting it to Copilot CLI?
+
+<details>
+<summary>Check your answer</summary>
+
+A local MCP server runs code on your machine and exposes tools that Copilot can call with your account permissions. A malicious or compromised server could read sensitive files or take unintended actions, so treat it like any executable dependency: verify its publisher and source, then enable only the tools needed for the task. Sandboxing adds another boundary when trust is uncertain.
+
+**Go deeper:** [Add MCP servers to Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers).
+
+</details>
+
 ## ✅ Part 8 Complete
 
 You've learned how to:

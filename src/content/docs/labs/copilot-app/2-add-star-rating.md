@@ -122,6 +122,19 @@ You've started your first agent session and shipped your first change! Specifica
 
 Next, you'll use the app to add a custom instructions standard to the repository — starting from one of the issues in your backlog. Continue to [Lesson 3 - Guiding Copilot with custom instructions][next-lesson].
 
+## Check your understanding
+
+Why does each agent session use its own git worktree, and why should you review the session's diff?
+
+<details>
+<summary>Check your answer</summary>
+
+A dedicated worktree and branch isolate one session's edits from other sessions, allowing several agents to work in parallel without colliding. The diff is your checkpoint for confirming the implementation, file scope, and project conventions before the changes reach a pull request. Isolation makes parallel work possible; review keeps the developer accountable for the result.
+
+**Go deeper:** [Work with agent sessions](https://docs.github.com/en/copilot/how-tos/github-copilot-app/agent-sessions).
+
+</details>
+
 ## Resources
 
 - [Working with agent sessions in the GitHub Copilot app][agent-sessions]

@@ -90,6 +90,19 @@ GitHub Copilot will propose the following changes to the application including u
 
 **Key Takeaway**: Copilot Agent can generate complete feature implementations based on your natural language descriptions, saving significant development time.
 
+## Check your understanding
+
+Why is Agent mode better suited than Ask mode for implementing a feature across several project files?
+
+<details>
+<summary>Check your answer</summary>
+
+Ask mode answers a question or suggests an approach, but it does not continue through a multi-step implementation. Agent mode can determine which files need changes, edit across the project, run tools or commands, inspect failures, and refine the solution. That feedback loop is what makes it appropriate for a feature whose UI, service, routing, and tests must stay coordinated.
+
+**Go deeper:** [Use GitHub Copilot agent mode in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-agent-mode?view=visualstudio).
+
+</details>
+
 ---
 
 [Back: Part 04 - Using Custom Instructions](../part04-custom-instructions/) | [Next: Part 06 - Using Copilot Vision](../part06-copilot-vision/)

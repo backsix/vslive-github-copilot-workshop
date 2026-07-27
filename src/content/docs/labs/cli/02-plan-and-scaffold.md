@@ -95,6 +95,19 @@ Before writing any code, let's use Copilot's planning workflows to think through
 
 ---
 
+## Check your understanding
+
+Why use plan mode before asking Copilot to scaffold a feature that spans several files?
+
+<details>
+<summary>Check your answer</summary>
+
+Plan mode separates deciding what to build from changing the code. Copilot can inspect the repository, ask clarifying questions, and propose an approach before edits begin, so misunderstandings are cheaper to correct. Direct execution is faster for small, well-scoped work; planning is safer when architecture, scope, or dependencies are still uncertain.
+
+**Go deeper:** [Use GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/overview).
+
+</details>
+
 ## ✅ Part 2 Complete!
 
 You've learned how to:

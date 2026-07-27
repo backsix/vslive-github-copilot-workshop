@@ -123,6 +123,19 @@ copilot -p "Summarize the architecture of this repo in 5 bullet points"
 > **Result:** You now have instructions, command awareness, and a feel for how to feed files into Copilot CLI context.
 
 
+## Check your understanding
+
+When should you use a path-specific instruction file instead of `.github/copilot-instructions.md`?
+
+<details>
+<summary>Check your answer</summary>
+
+Use `.github/copilot-instructions.md` for project-wide rules that should shape every request, such as build commands and repository conventions. Use a file under `.github/instructions/` with an `applyTo` glob when guidance only matters for certain paths or file types. Keeping specialized rules scoped avoids loading irrelevant context into every conversation.
+
+**Go deeper:** [Add custom instructions for Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions).
+
+</details>
+
 ## ✅ Part 1 Complete
 
 You've learned how to:

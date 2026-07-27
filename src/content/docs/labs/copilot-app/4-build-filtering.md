@@ -167,6 +167,19 @@ You built a real feature end to end and verified it against the team's bar! Spec
 
 Next, you'll connect the Playwright MCP server and ask the agent to explore your filtering feature in a real browser. Continue to [Lesson 5 - Testing with the Playwright MCP server][next-lesson].
 
+## Check your understanding
+
+How do Interactive, Plan, and Autopilot modes change the amount of control you keep during a session?
+
+<details>
+<summary>Check your answer</summary>
+
+Interactive mode pauses for your input as work progresses. Plan mode produces an approach for review before implementation, which is useful when scope or architecture needs agreement. Autopilot works independently through implementation and verification, so reserve it for clear, isolated tasks with strong instructions and meaningful tests.
+
+**Go deeper:** [Choose a Copilot App session mode](https://docs.github.com/en/copilot/how-tos/github-copilot-app/agent-sessions).
+
+</details>
+
 ## Resources
 
 - [Working with agent sessions in the GitHub Copilot app][agent-sessions]

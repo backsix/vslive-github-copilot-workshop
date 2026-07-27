@@ -115,6 +115,19 @@ You created a shared surface where you and the agent can collaborate! You:
 
 With your backlog tracked, take a step back to review everything you've built and where to go next. Continue to [Lesson 8 - Review and next steps][next-lesson].
 
+## Check your understanding
+
+What distinguishes a canvas from a session chat, and how does its storage location affect who can use it?
+
+<details>
+<summary>Check your answer</summary>
+
+A canvas is a persistent interactive surface that both you and the agent can update, while chat is primarily a conversational exchange. A canvas stored in `.github/extensions` travels with the repository and can be shared by the team. A user-scoped canvas under `~/.copilot/extensions` stays local to your machine.
+
+**Go deeper:** [Work with canvas extensions](https://docs.github.com/en/copilot/how-tos/github-copilot-app/working-with-canvas-extensions).
+
+</details>
+
 ## Resources
 
 - [Working with canvas extensions in the GitHub Copilot app][canvas-docs]

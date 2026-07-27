@@ -205,6 +205,19 @@ The default answer works. The specialist version keeps the palette, adds hover/f
 
 ---
 
+## Check your understanding
+
+When is a custom agent a better fit than custom instructions?
+
+<details>
+<summary>Check your answer</summary>
+
+Custom instructions provide always-on guidance for work in their scope. A custom agent is an optional specialist with its own context, tools, and role, which makes it better for focused delegated work such as a security review or accessibility audit. The two can work together: instructions preserve project conventions while the agent supplies task-specific expertise.
+
+**Go deeper:** [Compare Copilot CLI customization features](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/comparing-cli-features).
+
+</details>
+
 ## ✅ Part 6 Complete
 
 You've learned how to:

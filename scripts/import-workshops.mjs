@@ -12,6 +12,7 @@ import {
 import { tmpdir } from 'node:os';
 import { basename, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { knowledgeChecks } from './knowledge-checks.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const manifest = JSON.parse(readFileSync(join(root, 'workshops.sources.json'), 'utf8'));
@@ -130,6 +131,45 @@ const normalizeTaskMarkers = (markdown) => {
     .join('\n');
 };
 
+const addKnowledgeCheck = (markdown, destinationFile) => {
+  const key = destinationFile
+    .slice(contentRoot.length + 1)
+    .replaceAll('\\', '/');
+  const check = knowledgeChecks[key];
+  if (!check) return markdown;
+
+  const block = `## Check your understanding
+
+${check.question}
+
+<details>
+<summary>Check your answer</summary>
+
+${check.answer}
+
+**Go deeper:** [${check.sourceLabel}](${check.sourceUrl}).
+
+</details>`;
+
+  const marker = key.startsWith('cli/')
+    ? /^## ✅/m
+    : key.startsWith('copilot-app/')
+      ? /^## Resources/m
+      : null;
+
+  if (!marker) {
+    const dividerIndex = markdown.lastIndexOf('\n---\n');
+    if (dividerIndex < 0) {
+      throw new Error(`Could not place knowledge check in ${key}`);
+    }
+    return `${markdown.slice(0, dividerIndex).trimEnd()}\n\n${block}\n${markdown.slice(dividerIndex)}`;
+  }
+  if (!marker.test(markdown)) {
+    throw new Error(`Could not place knowledge check in ${key}`);
+  }
+  return markdown.replace(marker, `${block}\n\n$&`);
+};
+
 const normalizeMarkdown = (sourceFile, destinationFile, options = {}) => {
   let markdown = readFileSync(sourceFile, 'utf8')
     .replace(/^\uFEFF/, '')
@@ -168,6 +208,7 @@ const normalizeMarkdown = (sourceFile, destinationFile, options = {}) => {
     );
   }
 
+  markdown = addKnowledgeCheck(markdown, destinationFile);
   markdown = normalizeTaskMarkers(markdown);
   mkdirSync(dirname(destinationFile), { recursive: true });
   writeFileSync(destinationFile, markdown.trimEnd() + '\n');

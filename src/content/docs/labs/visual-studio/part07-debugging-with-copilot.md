@@ -43,6 +43,19 @@ In this subsection, you'll learn how to use Copilot to analyze variables using w
 
 **Key Takeaway**: Copilot can enhance debugging by providing detailed insights into variables through watch windows and visualizers. Copilot can simplify complex debugging tasks by generating expressions and LINQ queries based on natural language input.
 
+## Check your understanding
+
+Why can analyzing an exception from the Visual Studio debugger produce a more specific answer than describing it in a new chat?
+
+<details>
+<summary>Check your answer</summary>
+
+The debugger can supply Copilot with the current call stack, code location, exception, and live variable values automatically. That runtime context lets Copilot reason about the execution state that actually failed instead of relying only on a written description. The same advantage applies when asking about a value from a watch window or data tip.
+
+**Go deeper:** [Debug with GitHub Copilot](https://learn.microsoft.com/en-us/visualstudio/debugger/debug-with-copilot?view=visualstudio).
+
+</details>
+
 ---
 
 [Back: Part 06 - Using Copilot Vision](../part06-copilot-vision/) | [Next: Part 08 - Commit Summary Descriptions](../part08-commit-summary-descriptions/)

@@ -107,6 +107,19 @@ After submitting, you'll see a confirmation that your task has been delegated. Y
 
 **Key Takeaway**: Delegating to the Cloud lets you offload complex tasks to GitHub Copilot while you focus on other work. This is especially valuable for time-consuming implementations or when you want to explore ideas without blocking your immediate workflow.
 
+## Check your understanding
+
+How does delegating to the cloud differ from using local Agent mode, and why does the initial prompt need more context?
+
+<details>
+<summary>Check your answer</summary>
+
+Local Agent mode works synchronously against your current development environment, while the cloud agent runs asynchronously in an isolated environment from the repository state and returns its work through a pull request. It cannot see local uncommitted changes or depend on a live back-and-forth while it works. Include the goal, constraints, relevant paths, and acceptance criteria up front so the remote task can proceed independently.
+
+**Go deeper:** [Understand the Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent).
+
+</details>
+
 ---
 
 🎉 **Congratulations!** You've completed all 13 parts of the workshop!

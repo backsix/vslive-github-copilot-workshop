@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { extname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { knowledgeChecks } from './knowledge-checks.mjs';
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const docsRoot = join(root, 'src', 'content', 'docs');
@@ -57,6 +58,21 @@ const walk = (directory) => {
 };
 
 walk(docsRoot);
+
+for (const [path, check] of Object.entries(knowledgeChecks)) {
+  const fullPath = join(docsRoot, 'labs', path);
+  if (!existsSync(fullPath)) {
+    errors.push(`Missing knowledge-check page: ${path}`);
+    continue;
+  }
+  const markdown = readFileSync(fullPath, 'utf8');
+  if (!markdown.includes('## Check your understanding')) {
+    errors.push(`Missing knowledge check in ${path}`);
+  }
+  if (!markdown.includes(check.question) || !markdown.includes(check.sourceUrl)) {
+    errors.push(`Incomplete knowledge check in ${path}`);
+  }
+}
 
 if (errors.length) {
   console.error(errors.join('\n'));

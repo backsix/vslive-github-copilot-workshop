@@ -57,6 +57,19 @@ You've automated several parts of the development process, including generating 
 
 Next, you'll explore **canvases** — a richer way to plan and visualize work with the agent. Continue to [Lesson 7 - Planning with canvases][next-lesson].
 
+## Check your understanding
+
+What does Agent Merge automate, and what responsibility does the developer retain?
+
+<details>
+<summary>Check your answer</summary>
+
+Agent Merge handles the mechanical pull-request finish line: monitoring checks and reviews, addressing blockers, resolving conflicts when possible, and merging when GitHub allows. The developer still reviews the code and decides whether the change is acceptable. Automation removes coordination work, not ownership of code quality.
+
+**Go deeper:** [Manage pull requests with Agent Merge](https://docs.github.com/en/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests).
+
+</details>
+
 ## Resources
 
 - [Managing issues and pull requests with the GitHub Copilot app][managing-issues-prs]
