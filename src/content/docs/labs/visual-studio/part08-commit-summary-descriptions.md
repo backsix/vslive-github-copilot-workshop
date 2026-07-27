@@ -11,8 +11,15 @@ In this section, you'll learn how to use GitHub Copilot to generate commit messa
 
    ![VS commit dialog with AI button](./images/8-commit.png)
    
-1. [ ] Navigate to **Tools -> Options -> GitHub -> Copilot -> Source Control Integration**.
-1. [ ] Update the commit message customization setting to: `Summarize in a few sentences and then highlight the top 5 changes with emoji and short descriptions`
+1. [ ] In **Solution Explorer**, expand the **GitHub Node** and open `copilot-instructions.md`.
+1. [ ] At the bottom of the file, add:
+
+   ```markdown
+   ## Commit Messages
+
+   When creating Commit messages, summarize in a few sentences and then highlight the top 5 changes with emoji and short descriptions
+   ```
+
 1. [ ] Return to the **Git Changes** view and generate a new commit message.
 1. [ ] Observe how the new commit message reflects the updated customization.
 

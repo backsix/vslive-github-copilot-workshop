@@ -104,6 +104,22 @@ for (const name of readdirSync(visualStudioRoot).filter((name) => /^part\d+.*\.m
   }
 }
 
+const commitSummaryLesson = readFileSync(
+  join(visualStudioRoot, 'part08-commit-summary-descriptions.md'),
+  'utf8'
+);
+if (
+  !commitSummaryLesson.includes('## Commit Messages') ||
+  !commitSummaryLesson.includes(
+    'When creating Commit messages, summarize in a few sentences and then highlight the top 5 changes with emoji and short descriptions'
+  )
+) {
+  errors.push('Visual Studio commit-message custom instructions are missing.');
+}
+if (commitSummaryLesson.includes('Tools -> Options -> GitHub -> Copilot')) {
+  errors.push('Visual Studio commit-message lesson must use copilot-instructions.md, not Tools options.');
+}
+
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exit(1);

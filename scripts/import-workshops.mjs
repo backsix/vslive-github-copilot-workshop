@@ -354,6 +354,17 @@ importMarkdownDirectory(
         '`labs/03-visual-studio/eshop.png` from your cloned workshop repository'
       ],
       [
+        /1\. \[(?: )?\] Navigate to \*\*Tools -> Options -> GitHub -> Copilot -> Source Control Integration\*\*\.\n1\. \[(?: )?\] Update the commit message customization setting to: `Summarize in a few sentences and then highlight the top 5 changes with emoji and short descriptions`/,
+        `1. [ ] In **Solution Explorer**, expand the **GitHub Node** and open \`copilot-instructions.md\`.
+1. [ ] At the bottom of the file, add:
+
+   \`\`\`markdown
+   ## Commit Messages
+
+   When creating Commit messages, summarize in a few sentences and then highlight the top 5 changes with emoji and short descriptions
+   \`\`\``
+      ],
+      [
         /## Clone Lab Repository[\s\S]*?The code is now opened in Visual Studio\. Feel free to take a look at it or skip to the next section to start the app\./,
         `## Open the included lab solution
 
