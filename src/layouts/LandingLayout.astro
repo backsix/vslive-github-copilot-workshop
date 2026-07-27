@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import ProgressReset from '../components/ProgressReset.astro';
 
 interface Props {
   title: string;
@@ -54,6 +55,7 @@ const base = import.meta.env.BASE_URL;
       <a href="https://vslive.com/events/microsofthq-2026/sessions/friday/f01-workshop-github-copilot.aspx">
         View the official session
       </a>
+      <ProgressReset />
     </footer>
     <script src="../scripts/progress.js"></script>
     <script>

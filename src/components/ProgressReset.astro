@@ -1,0 +1,144 @@
+<div class="progress-reset" data-progress-reset>
+  <button class="reset-trigger" type="button" data-reset-trigger>
+    Reset workshop progress
+  </button>
+
+  <dialog class="reset-dialog" aria-labelledby="reset-progress-title" data-reset-dialog>
+    <form method="dialog">
+      <h2 id="reset-progress-title">Reset all workshop progress?</h2>
+      <p>
+        This clears completed lessons and checked task items stored in this browser. This action
+        cannot be undone.
+      </p>
+      <div class="reset-actions">
+        <button class="keep-progress" type="submit" value="cancel">Keep progress</button>
+        <button class="confirm-reset" type="submit" value="confirm" data-reset-confirm>
+          Reset all progress
+        </button>
+      </div>
+    </form>
+  </dialog>
+</div>
+
+<script>
+  const lessonProgressKey = 'vslive-workshop-progress-v1';
+  const taskProgressKey = 'vslive-workshop-task-progress-v1';
+
+  document.querySelectorAll<HTMLElement>('[data-progress-reset]').forEach((container) => {
+    if (container.dataset.resetReady === 'true') return;
+    container.dataset.resetReady = 'true';
+
+    const trigger = container.querySelector<HTMLButtonElement>('[data-reset-trigger]');
+    const dialog = container.querySelector<HTMLDialogElement>('[data-reset-dialog]');
+    const confirm = container.querySelector<HTMLButtonElement>('[data-reset-confirm]');
+    if (!trigger || !dialog || !confirm) return;
+
+    trigger.addEventListener('click', () => dialog.showModal());
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close('cancel');
+    });
+    confirm.addEventListener('click', (event) => {
+      event.preventDefault();
+      localStorage.removeItem(lessonProgressKey);
+      localStorage.removeItem(taskProgressKey);
+      dialog.close('confirm');
+      location.reload();
+    });
+  });
+</script>
+
+<style>
+  .progress-reset {
+    display: flex;
+    justify-content: flex-end;
+    margin-block: 1.25rem;
+  }
+
+  .reset-trigger,
+  .reset-actions button {
+    min-height: 2.5rem;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--workshop-border);
+    border-radius: 0.5rem;
+    font: 700 0.86rem/1 var(--font-sans);
+    cursor: pointer;
+  }
+
+  .reset-trigger,
+  .keep-progress {
+    background: var(--workshop-surface);
+    color: var(--workshop-muted);
+  }
+
+  .reset-trigger:hover,
+  .keep-progress:hover {
+    border-color: var(--workshop-accent);
+    color: var(--workshop-ink);
+  }
+
+  .reset-trigger:focus-visible,
+  .reset-actions button:focus-visible {
+    outline: 3px solid var(--workshop-accent);
+    outline-offset: 3px;
+  }
+
+  .reset-dialog {
+    width: min(29rem, calc(100% - 2rem));
+    padding: 0;
+    border: 1px solid var(--workshop-border);
+    border-radius: 0.85rem;
+    background: var(--workshop-surface);
+    color: var(--workshop-ink);
+    box-shadow: 0 24px 80px oklch(0 0 0 / 0.45);
+  }
+
+  .reset-dialog::backdrop {
+    background: oklch(0.05 0 0 / 0.72);
+  }
+
+  .reset-dialog form {
+    padding: 1.4rem;
+  }
+
+  .reset-dialog h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+  }
+
+  .reset-dialog p {
+    margin: 0.75rem 0 1.35rem;
+    color: var(--workshop-muted);
+    line-height: 1.6;
+  }
+
+  .reset-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.65rem;
+  }
+
+  .confirm-reset {
+    border-color: var(--workshop-primary);
+    background: var(--workshop-primary);
+    color: oklch(0.98 0.004 80);
+  }
+
+  .confirm-reset:hover {
+    border-color: var(--workshop-primary-strong);
+    background: var(--workshop-primary-strong);
+  }
+
+  @media (max-width: 30rem) {
+    .progress-reset,
+    .reset-actions {
+      justify-content: flex-start;
+    }
+
+    .reset-trigger,
+    .reset-actions button {
+      width: 100%;
+    }
+  }
+</style>
