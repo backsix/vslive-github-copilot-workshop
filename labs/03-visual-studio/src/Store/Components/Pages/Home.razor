@@ -1,0 +1,20 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+<h1>Home</h1>
+
+<p>Welcome to the best e-commerce platform in the world - TinyShop!</p>
+
+<button class="btn btn-primary" @onclick="NavigateToNonExistentPage">Go to About</button>
+
+@code {
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
+
+    private void NavigateToNonExistentPage()
+    {
+        NavigationManager.NavigateTo("/about");
+    }
+}

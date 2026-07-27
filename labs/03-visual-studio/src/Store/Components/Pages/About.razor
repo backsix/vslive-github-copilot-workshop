@@ -1,0 +1,30 @@
+@page "/about"
+@rendermode InteractiveServer
+
+<PageTitle>About</PageTitle>
+
+<h1>About TinyShop</h1>
+
+<p>Loading page content...</p>
+
+@code {
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
+
+    private bool firstRender = true;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            this.firstRender = false;
+            var uri = new Uri(NavigationManager.Uri);
+            var queryString = uri.Query;
+
+            if (string.IsNullOrEmpty(queryString))
+            {
+                throw new InvalidOperationException("This page requires query parameters to function properly. Please add some query parameters to the URL (e.g., ?param=value)");
+            }
+        }
+    }
+}

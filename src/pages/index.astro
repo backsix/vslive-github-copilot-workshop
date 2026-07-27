@@ -1,0 +1,590 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+const labs = [
+  {
+    key: 'cli',
+    number: '01',
+    title: 'Copilot CLI',
+    duration: '60–90 min',
+    platform: 'Windows · macOS · Linux',
+    description: 'Plan, build, parallelize, review, and extend a retro contribution arena from the terminal.',
+    outcome: 'Ship Mona Mayhem with an agentic CLI workflow.',
+    href: `${base}labs/cli/`
+  },
+  {
+    key: 'copilot-app',
+    number: '02',
+    title: 'Copilot App',
+    duration: '90 min',
+    platform: 'Windows · macOS · Linux',
+    description: 'Move from issue to implementation, review, testing, and merge using the Copilot app.',
+    outcome: 'Complete a full repo-backed development loop.',
+    href: `${base}labs/copilot-app/`
+  },
+  {
+    key: 'visual-studio',
+    number: '03',
+    title: 'Visual Studio 2026',
+    duration: '90 min',
+    platform: 'Windows required',
+    description: 'Explore advanced Copilot features while completing and improving the TinyShop solution.',
+    outcome: 'Use Copilot across coding, debugging, planning, and delegation.',
+    href: `${base}labs/visual-studio/`
+  },
+  {
+    key: 'copilot-sdk',
+    number: '04',
+    title: 'Copilot SDK',
+    duration: 'Time permitting',
+    platform: 'Windows · macOS · Linux',
+    description: 'Build a .NET accessibility reviewer with streaming, local tools, Playwright MCP, and trust boundaries.',
+    outcome: 'Run Copilot as an agent inside your own application.',
+    href: `${base}labs/copilot-sdk/`,
+    optional: true
+  }
+];
+---
+
+<LandingLayout
+  title="VS Live Redmond · GitHub Copilot Workshop"
+  description="Four hands-on GitHub Copilot labs with Kayla Cinnamon and James Montemagno at VS Live Redmond 2026."
+>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="event-line">
+        <span>VS Live Redmond</span>
+        <span aria-hidden="true">/</span>
+        <time datetime="2026">2026</time>
+      </p>
+      <h1>One day.<br /><strong>Four ways to build.</strong></h1>
+      <p class="hero-lede">
+        Go from the terminal to the desktop app, deep into Visual Studio, and finally inside
+        Copilot itself. A hands-on workshop with Kayla Cinnamon and James Montemagno.
+      </p>
+      <div class="hero-actions">
+        <a class="primary-action" href={`${base}prepare/`}>Prepare your machine</a>
+        <a class="resume-action" href={`${base}labs/cli/`} data-workshop-resume>
+          Start with Copilot CLI <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <p class="progress-summary" data-workshop-summary aria-live="polite">
+        Your progress stays in this browser.
+      </p>
+    </div>
+
+    <div class="signal-board" aria-label="Four connected GitHub Copilot work surfaces">
+      <div class="signal-top">
+        <span>WORKSHOP_SIGNAL</span>
+        <span class="signal-live"><i></i> LIVE PATH</span>
+      </div>
+      <div class="terminal-fragment">
+        <p><span class="prompt">❯</span> copilot</p>
+        <p class="dim">Analyze this repo and create a plan.</p>
+        <p><span class="tool">●</span> Reading instructions…</p>
+      </div>
+      <div class="surface-row">
+        <div><span>APP</span><strong>Autopilot</strong><i>working</i></div>
+        <div><span>IDE</span><strong>TinyShop</strong><i>agent</i></div>
+        <div><span>SDK</span><strong>session.send</strong><i>stream</i></div>
+      </div>
+      <svg class="signal-trace" viewBox="0 0 520 130" role="img" aria-label="Signal flowing through CLI, app, IDE, and SDK">
+        <path d="M12 100 C90 100 82 28 166 28 S238 103 322 103 400 42 508 42" />
+        <circle cx="12" cy="100" r="6" />
+        <circle cx="166" cy="28" r="6" />
+        <circle cx="322" cy="103" r="6" />
+        <circle cx="508" cy="42" r="6" />
+      </svg>
+    </div>
+  </section>
+
+  <section class="day-intro" aria-labelledby="day-heading">
+    <div>
+      <p>Friday workshop · Microsoft HQ</p>
+      <h2 id="day-heading">A complete Copilot field guide.</h2>
+    </div>
+    <p>
+      We begin with a 15-minute state of GitHub Copilot, then build through four increasingly
+      integrated surfaces. Each lab has its own starter, checkpoints, and focused lesson path.
+    </p>
+  </section>
+
+  <section class="pathway" aria-label="Workshop labs">
+    {labs.map((lab) => (
+      <article class:list={['lab-stage', { optional: lab.optional }]}>
+        <div class="stage-index">
+          <span>{lab.number}</span>
+          <div class="stage-progress" aria-hidden="true">
+            <i data-lab-progress={lab.key}></i>
+          </div>
+        </div>
+        <div class="stage-main">
+          <div class="stage-heading">
+            <h2>{lab.title}</h2>
+            {lab.optional && <span class="optional-label">Optional finale</span>}
+          </div>
+          <p>{lab.description}</p>
+          <strong>{lab.outcome}</strong>
+        </div>
+        <div class="stage-meta">
+          <span>{lab.duration}</span>
+          <span>{lab.platform}</span>
+          <a href={lab.href}>Open lab <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section class="requirements" aria-labelledby="requirements-heading">
+    <div>
+      <h2 id="requirements-heading">Arrive ready to build.</h2>
+      <p>Run the preflight before Friday so workshop time stays focused on Copilot.</p>
+      <a href={`${base}prepare/`}>View the complete preparation guide →</a>
+    </div>
+    <ul>
+      <li><span>01</span><strong>GitHub account</strong><small>Copilot Free or paid</small></li>
+      <li><span>02</span><strong>Node.js</strong><small>Version 22 or 24</small></li>
+      <li><span>03</span><strong>.NET SDK</strong><small>Version 10</small></li>
+      <li><span>04</span><strong>Visual Studio 2026</strong><small>Windows · web/.NET workload</small></li>
+    </ul>
+  </section>
+</LandingLayout>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(25rem, 0.95fr);
+    align-items: center;
+    gap: clamp(3rem, 7vw, 7.5rem);
+    width: min(var(--workshop-max), calc(100% - 2rem));
+    min-height: calc(100svh - 4.5rem);
+    margin: 0 auto;
+    padding: clamp(4rem, 8vw, 7.5rem) 0;
+  }
+
+  .event-line {
+    display: flex;
+    gap: 0.7rem;
+    margin: 0 0 1.25rem;
+    color: var(--workshop-accent);
+    font: 600 0.76rem/1.2 var(--font-mono);
+  }
+
+  h1 {
+    max-width: 12ch;
+    margin: 0;
+    font-size: clamp(3.25rem, 7.2vw, 6rem);
+    line-height: 0.91;
+    letter-spacing: -0.04em;
+  }
+
+  h1 strong {
+    color: var(--workshop-primary);
+    font-weight: 790;
+  }
+
+  .hero-lede {
+    max-width: 60ch;
+    margin: 1.75rem 0 0;
+    color: var(--workshop-muted);
+    font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.3rem;
+    margin-top: 2rem;
+  }
+
+  .primary-action {
+    display: inline-flex;
+    align-items: center;
+    min-height: 3.1rem;
+    padding: 0.75rem 1.15rem;
+    border: 1px solid var(--workshop-primary);
+    border-radius: 0.6rem;
+    background: var(--workshop-primary);
+    box-shadow: 0 14px 36px color-mix(in oklch, var(--workshop-primary) 24%, transparent);
+    color: oklch(0.98 0.004 80);
+    font-weight: 750;
+    text-decoration: none;
+    transition: box-shadow 180ms var(--workshop-ease), transform 180ms var(--workshop-ease);
+  }
+
+  .primary-action:hover {
+    box-shadow: 0 18px 46px color-mix(in oklch, var(--workshop-primary) 34%, transparent);
+    transform: translateY(-2px);
+  }
+
+  .resume-action {
+    color: var(--workshop-accent);
+    font-weight: 720;
+    text-underline-offset: 0.25em;
+  }
+
+  .progress-summary {
+    margin: 1rem 0 0;
+    color: var(--workshop-muted);
+    font-size: 0.84rem;
+  }
+
+  .signal-board {
+    position: relative;
+    overflow: hidden;
+    min-height: 31rem;
+    padding: 1.1rem;
+    border: 1px solid var(--workshop-border);
+    border-radius: 1.1rem;
+    background:
+      linear-gradient(var(--workshop-border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--workshop-border) 1px, transparent 1px),
+      var(--workshop-surface);
+    background-size: 2.5rem 2.5rem;
+    box-shadow: var(--workshop-shadow);
+    transform: rotate(0.7deg);
+    animation: board-in 900ms var(--workshop-ease) both;
+  }
+
+  .signal-top,
+  .surface-row,
+  .surface-row > div {
+    display: flex;
+  }
+
+  .signal-top {
+    justify-content: space-between;
+    color: var(--workshop-muted);
+    font: 600 0.68rem/1 var(--font-mono);
+  }
+
+  .signal-live {
+    color: var(--workshop-success);
+  }
+
+  .signal-live i {
+    display: inline-block;
+    width: 0.45rem;
+    height: 0.45rem;
+    margin-right: 0.35rem;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 1rem currentColor;
+  }
+
+  .terminal-fragment {
+    position: relative;
+    z-index: 1;
+    width: 89%;
+    margin: 2.5rem 0 0 3%;
+    padding: 1.25rem 1.35rem;
+    border: 1px solid var(--workshop-border);
+    border-radius: 0.7rem;
+    background: color-mix(in oklch, var(--workshop-bg) 94%, transparent);
+    box-shadow: 0 18px 44px oklch(0 0 0 / 0.25);
+    font: 400 clamp(0.72rem, 1.1vw, 0.88rem)/1.8 var(--font-mono);
+  }
+
+  .terminal-fragment p {
+    margin: 0;
+  }
+
+  .terminal-fragment .prompt,
+  .terminal-fragment .tool {
+    color: var(--workshop-primary);
+  }
+
+  .terminal-fragment .dim {
+    color: var(--workshop-muted);
+  }
+
+  .surface-row {
+    position: relative;
+    z-index: 2;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    margin-top: 2.2rem;
+  }
+
+  .surface-row > div {
+    width: 31%;
+    min-height: 7.5rem;
+    padding: 0.8rem;
+    border: 1px solid var(--workshop-border);
+    border-radius: 0.65rem;
+    background: var(--workshop-raised);
+    flex-direction: column;
+  }
+
+  .surface-row span,
+  .surface-row i {
+    color: var(--workshop-muted);
+    font: 600 0.62rem/1.2 var(--font-mono);
+  }
+
+  .surface-row strong {
+    margin: auto 0 0.5rem;
+    font-size: clamp(0.78rem, 1.15vw, 0.95rem);
+  }
+
+  .surface-row i {
+    color: var(--workshop-accent);
+    font-style: normal;
+  }
+
+  .signal-trace {
+    position: absolute;
+    right: -1rem;
+    bottom: 0;
+    left: -1rem;
+    width: calc(100% + 2rem);
+    fill: var(--workshop-primary);
+    filter: drop-shadow(0 0 8px color-mix(in oklch, var(--workshop-primary) 60%, transparent));
+    stroke: var(--workshop-primary);
+    stroke-width: 2;
+  }
+
+  .signal-trace path {
+    fill: none;
+  }
+
+  .day-intro,
+  .requirements {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(2rem, 8vw, 8rem);
+    width: min(var(--workshop-max), calc(100% - 2rem));
+    margin: 0 auto;
+    padding: clamp(5rem, 9vw, 9rem) 0;
+  }
+
+  .day-intro {
+    border-top: 1px solid var(--workshop-border);
+  }
+
+  .day-intro > div > p {
+    margin: 0 0 0.8rem;
+    color: var(--workshop-primary);
+    font: 600 0.75rem/1.2 var(--font-mono);
+  }
+
+  .day-intro h2,
+  .requirements h2 {
+    margin: 0;
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+  }
+
+  .day-intro > p {
+    max-width: 56ch;
+    margin: 0;
+    color: var(--workshop-muted);
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  }
+
+  .pathway {
+    width: min(var(--workshop-max), calc(100% - 2rem));
+    margin: 0 auto;
+    border-top: 1px solid var(--workshop-border);
+  }
+
+  .lab-stage {
+    display: grid;
+    grid-template-columns: 8rem minmax(0, 1fr) minmax(12rem, 0.36fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    padding: clamp(2rem, 4vw, 3.6rem) 0;
+    border-bottom: 1px solid var(--workshop-border);
+  }
+
+  .stage-index > span {
+    color: var(--workshop-primary);
+    font: 650 1.1rem/1 var(--font-mono);
+  }
+
+  .stage-progress {
+    overflow: hidden;
+    width: 100%;
+    height: 0.26rem;
+    margin-top: 1rem;
+    background: var(--workshop-border);
+  }
+
+  .stage-progress i {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--workshop-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 500ms var(--workshop-ease);
+  }
+
+  .stage-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .stage-heading h2 {
+    margin: 0;
+    font-size: clamp(1.8rem, 3.2vw, 3rem);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .optional-label {
+    padding: 0.3rem 0.55rem;
+    border: 1px solid var(--workshop-violet);
+    border-radius: 2rem;
+    color: var(--workshop-violet);
+    font: 650 0.7rem/1 var(--font-sans);
+  }
+
+  .stage-main p {
+    max-width: 58ch;
+    margin: 1rem 0 0.7rem;
+    color: var(--workshop-muted);
+  }
+
+  .stage-main > strong {
+    font-size: 0.92rem;
+  }
+
+  .stage-meta {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.45rem;
+    color: var(--workshop-muted);
+    font-size: 0.84rem;
+  }
+
+  .stage-meta a {
+    margin-top: auto;
+    color: var(--workshop-accent);
+    font-weight: 720;
+    text-underline-offset: 0.25em;
+  }
+
+  .requirements {
+    align-items: start;
+  }
+
+  .requirements > div > p {
+    max-width: 46ch;
+    color: var(--workshop-muted);
+  }
+
+  .requirements > div > a {
+    color: var(--workshop-accent);
+    font-weight: 700;
+  }
+
+  .requirements ul {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--workshop-border);
+    list-style: none;
+  }
+
+  .requirements li {
+    display: grid;
+    grid-template-columns: 2.4rem 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--workshop-border);
+  }
+
+  .requirements li span {
+    color: var(--workshop-primary);
+    font: 600 0.72rem/1 var(--font-mono);
+  }
+
+  .requirements li small {
+    color: var(--workshop-muted);
+  }
+
+  @keyframes board-in {
+    from {
+      filter: blur(8px);
+      opacity: 0.3;
+      transform: translateY(1.5rem) rotate(0.7deg);
+    }
+  }
+
+  @media (max-width: 58rem) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+
+    .signal-board {
+      width: min(100%, 38rem);
+      min-height: 28rem;
+      transform: none;
+    }
+
+    .lab-stage {
+      grid-template-columns: 5rem minmax(0, 1fr);
+    }
+
+    .stage-meta {
+      grid-column: 2;
+    }
+  }
+
+  @media (max-width: 42rem) {
+    .hero {
+      min-height: auto;
+      padding-top: 4rem;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 15vw, 4.8rem);
+    }
+
+    .signal-board {
+      min-height: 25rem;
+    }
+
+    .surface-row > div {
+      min-height: 6.5rem;
+    }
+
+    .day-intro,
+    .requirements {
+      grid-template-columns: 1fr;
+    }
+
+    .lab-stage {
+      grid-template-columns: 1fr;
+    }
+
+    .stage-index {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .stage-progress {
+      flex: 1;
+      margin-top: 0;
+    }
+
+    .stage-meta {
+      grid-column: auto;
+    }
+
+    .requirements li {
+      grid-template-columns: 2rem 1fr;
+    }
+
+    .requirements li small {
+      grid-column: 2;
+    }
+  }
+</style>

@@ -1,0 +1,176 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#171717" />
+    <meta name="workshop-base" content={base} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <title>{title}</title>
+    <script is:inline>
+      const starlightTheme = localStorage.getItem('starlight-theme');
+      const storedTheme =
+        starlightTheme === 'light' || starlightTheme === 'dark'
+          ? starlightTheme
+          : localStorage.getItem('vslive-theme');
+      const theme = storedTheme || 'dark';
+      document.documentElement.dataset.theme = theme;
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to workshop overview</a>
+    <header class="landing-header">
+      <a class="landing-brand" href={base} aria-label="VS Live GitHub Copilot workshop home">
+        <img src={`${base}favicon.svg`} alt="" width="34" height="34" />
+        <span>VS Live × GitHub Copilot</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href={`${base}prepare/`}>Prepare</a>
+        <a href={`${base}resources/`}>Resources</a>
+        <button class="theme-button" type="button" aria-label="Switch color theme">
+          <span aria-hidden="true">◐</span>
+          <span class="theme-label">Theme</span>
+        </button>
+      </nav>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="landing-footer">
+      <p>Built for VS Live Redmond 2026 with Kayla Cinnamon and James Montemagno.</p>
+      <a href="https://vslive.com/events/microsofthq-2026/sessions/friday/f01-workshop-github-copilot.aspx">
+        View the official session
+      </a>
+    </footer>
+    <script src="../scripts/progress.js"></script>
+    <script>
+      const button = document.querySelector<HTMLButtonElement>('.theme-button');
+      button?.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem('vslive-theme', next);
+        localStorage.setItem('starlight-theme', next);
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  .skip-link {
+    position: fixed;
+    z-index: 100;
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.65rem 0.9rem;
+    border-radius: 0.45rem;
+    background: var(--workshop-ink);
+    color: var(--workshop-bg);
+    font-weight: 750;
+    transform: translateY(-160%);
+    transition: transform 160ms var(--workshop-ease);
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  .landing-header {
+    position: sticky;
+    z-index: 20;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 4.5rem;
+    padding: 0.6rem max(1rem, calc((100vw - var(--workshop-max)) / 2));
+    border-bottom: 1px solid var(--workshop-border);
+    background: color-mix(in oklch, var(--workshop-bg) 92%, transparent);
+    backdrop-filter: blur(14px);
+  }
+
+  .landing-brand,
+  .landing-header nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .landing-brand {
+    gap: 0.7rem;
+    font-weight: 760;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+
+  .landing-header nav {
+    gap: 1.25rem;
+  }
+
+  .landing-header nav a,
+  .theme-button {
+    color: var(--workshop-muted);
+    font: 650 0.9rem/1 var(--font-sans);
+    text-decoration: none;
+  }
+
+  .landing-header nav a:hover,
+  .theme-button:hover {
+    color: var(--workshop-accent);
+  }
+
+  .theme-button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    gap: 0.45rem;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid var(--workshop-border);
+    border-radius: 0.5rem;
+    background: var(--workshop-surface);
+    cursor: pointer;
+  }
+
+  .landing-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: min(var(--workshop-max), calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 2rem 0 3rem;
+    border-top: 1px solid var(--workshop-border);
+    color: var(--workshop-muted);
+    font-size: 0.9rem;
+  }
+
+  .landing-footer p {
+    margin: 0;
+  }
+
+  .landing-footer a {
+    color: var(--workshop-accent);
+    font-weight: 650;
+  }
+
+  @media (max-width: 42rem) {
+    .landing-header nav > a,
+    .theme-label {
+      display: none;
+    }
+
+    .landing-footer {
+      flex-direction: column;
+    }
+  }
+</style>

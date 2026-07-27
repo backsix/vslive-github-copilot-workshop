@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>HelloCopilotSDK</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GitHub.Copilot.SDK" Version="1.0.7" />
+    <Compile Include="../../start/HelloCopilotSDK/Helpers/AccessibilityRuleCatalog.cs" Link="Helpers/AccessibilityRuleCatalog.cs" />
+    <Compile Include="../../start/HelloCopilotSDK/Helpers/WorkshopPermissionHandler.cs" Link="Helpers/WorkshopPermissionHandler.cs" />
+  </ItemGroup>
+
+</Project>

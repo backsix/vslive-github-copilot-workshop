@@ -1,0 +1,36 @@
+{
+  "sources": [
+    {
+      "key": "cli",
+      "name": "Mona Mayhem",
+      "repository": "https://github.com/cinnamon-msft/kayla-chaos.git",
+      "commit": "bb0dd12c2edf7a9af32c71b5e26f95eb26bf6908",
+      "cacheDirectory": "kayla-chaos",
+      "license": "MIT"
+    },
+    {
+      "key": "copilot-app",
+      "name": "Copilot Workshops",
+      "repository": "https://github.com/github-samples/copilot-workshops.git",
+      "commit": "1d1a341ac911478700afc667b12d9874f84ae33b",
+      "cacheDirectory": "copilot-workshops",
+      "license": "MIT"
+    },
+    {
+      "key": "visual-studio",
+      "name": "Visual Studio GitHub Copilot Lab",
+      "repository": "https://github.com/dotnet-presentations/visual-studio-github-copilot-lab.git",
+      "commit": "3f873100b75889368e55a586b87579130f177dcf",
+      "cacheDirectory": "visual-studio-lab",
+      "license": "MIT"
+    },
+    {
+      "key": "copilot-sdk",
+      "name": "Copilot SDK Workshop",
+      "repository": "https://github.com/jamesmontemagno/copilot-sdk-workshop.git",
+      "commit": "1102d69ed78a8f0ef4294a49e19e36ae40dd3252",
+      "cacheDirectory": "copilot-sdk-workshop",
+      "license": "Educational use notice in upstream README"
+    }
+  ]
+}

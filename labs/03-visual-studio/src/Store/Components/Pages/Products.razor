@@ -1,0 +1,37 @@
+﻿@page "/products"
+@using DataEntities
+@using Store.Services
+@inject IConfiguration Configuration
+@rendermode InteractiveServer
+@attribute [StreamRendering(true)]
+
+<PageTitle>Products</PageTitle>
+
+<h1>Products</h1>
+
+<p>Here are some of our amazing outdoor products that you can purchase.</p>
+
+@if (products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <!--Implement Products table here-->
+    <p>Under construction...</p>
+
+}
+
+@code {
+    private List<Product>? products;
+    private string imagePrefix = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Simulate asynchronous loading to demonstrate streaming rendering
+        await Task.Delay(500);
+        imagePrefix = Configuration["ImagePrefix"]!;
+        products = [];
+    }
+
+}
