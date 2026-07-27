@@ -2,10 +2,6 @@
 title: "Part 1: Setup & Context Engineering"
 ---
 
-# Part 1: Setup & Context Engineering
-
----
-
 In this part you'll set up your development environment **and** teach Copilot about the codebase — so every future prompt starts with the right context.
 
 ## Section 1: Initial Setup

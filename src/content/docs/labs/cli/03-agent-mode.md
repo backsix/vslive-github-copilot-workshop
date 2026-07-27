@@ -2,10 +2,6 @@
 title: "Part 3: Build the Game with Agentic Workflows"
 ---
 
-# Part 3: Build the Game with Agentic Workflows
-
----
-
 This part is where Copilot goes from planner to implementer. Instead of writing code line by line, you describe what you want and let Copilot carry out the work across the files it needs to change.
 
 ## Task 1: Wire Up the Battle

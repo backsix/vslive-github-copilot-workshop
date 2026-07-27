@@ -2,10 +2,6 @@
 title: "🎮 Mona Mayhem — GitHub Copilot Workshop"
 ---
 
-# 🎮 Mona Mayhem — GitHub Copilot Workshop
-
----
-
 > **Duration:** 60–90 minutes for the facilitated core; advanced deep dives are available if time permits.
 > **Level:** Intermediate  
 > **Stack:** Astro / Node.js / TypeScript

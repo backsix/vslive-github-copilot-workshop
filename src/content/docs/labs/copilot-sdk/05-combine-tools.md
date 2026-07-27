@@ -2,8 +2,6 @@
 title: "Step 5: Combine local and MCP tools"
 ---
 
-# Step 5: Combine local and MCP tools
-
 > **Time:** 15 minutes
 
 ## What you'll orchestrate

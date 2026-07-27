@@ -2,8 +2,6 @@
 title: "Step 2: Stream a response"
 ---
 
-# Step 2: Stream a response
-
 > **Time:** 10 minutes
 
 ## What you'll see

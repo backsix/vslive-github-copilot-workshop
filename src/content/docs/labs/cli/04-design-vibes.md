@@ -2,10 +2,6 @@
 title: "Part 4: Design-First Theming"
 ---
 
-# Part 4: Design-First Theming
-
----
-
 In this part, you'll use Copilot's planning and implementation loops to design a comprehensive theme transformation. This is design-first development — start with the vision, iterate on the visuals, and let Copilot handle the CSS heavy lifting.
 
 ## Task 1: Plan the Retro Theme

@@ -2,8 +2,6 @@
 title: "Workshop Setup"
 ---
 
-# Workshop Setup
-
 To complete this workshop you will need Visual Studio 2026, the .NET 10 SDK, and a GitHub account with access to GitHub Copilot.
 
 ## Prerequisites

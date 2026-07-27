@@ -2,8 +2,6 @@
 title: "Step 4: Connect an external tool safely"
 ---
 
-# Step 4: Connect an external tool safely
-
 > **Time:** 20 minutes
 
 ## What you'll connect

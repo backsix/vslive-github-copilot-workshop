@@ -2,10 +2,6 @@
 title: "Part 7: Skills — Packaged, Reusable Expertise"
 ---
 
-# Part 7: Skills — Packaged, Reusable Expertise
-
----
-
 In Part 6 you built **agents** — personas you deliberately switch into. **Skills** are the next layer: packaged expertise that Copilot loads **automatically** the moment your prompt matches, no switching required.
 
 Think of skills as power tools on a shelf. You don't announce *"I will now use the drill."* You reach for the right tool when the job calls for it. Copilot does the same — it reads your prompt, matches it against each skill's description, and pulls in the relevant one.

@@ -2,10 +2,6 @@
 title: "Part 2: Plan & Scaffold"
 ---
 
-# Part 2: Plan & Scaffold
-
----
-
 Before writing any code, let's use Copilot's planning workflows to think through the architecture. Planning first helps you design better systems and gives Copilot the context it needs to generate higher-quality code.
 
 ## Task 1: Plan the API Architecture

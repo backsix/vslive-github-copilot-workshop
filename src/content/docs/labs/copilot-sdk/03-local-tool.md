@@ -2,8 +2,6 @@
 title: "Step 3: Add application-owned knowledge"
 ---
 
-# Step 3: Add application-owned knowledge
-
 > **Time:** 15 minutes
 
 ## What you'll add

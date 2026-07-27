@@ -2,8 +2,6 @@
 title: "Step 7: Run and explain the application"
 ---
 
-# Step 7: Run and explain the application
-
 > **Time:** 10 minutes
 
 ## What you'll be ready to explain

@@ -2,8 +2,6 @@
 title: "Part 01: Code Completion with Ghost Text"
 ---
 
-# Part 01: Code Completion with Ghost Text
-
 In this section, you'll use GitHub Copilot's code completion to implement API endpoints.
 
 > IMPORTANT: For this exercise, **DO NOT** copy and paste the code snippet provided, but rather type it manually. This will allow you to experience code completion as you would if you were coding back at your desk. You'll likely see you only have to type a few characters before GitHub Copilot begins suggesting the rest.

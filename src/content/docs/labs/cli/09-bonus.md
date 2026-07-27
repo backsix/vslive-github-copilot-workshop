@@ -2,10 +2,6 @@
 title: "🎉 Bonus & Extensions"
 ---
 
-# 🎉 Bonus & Extensions
-
----
-
 You've built a fully functional GitHub Battle app — and set up custom agents, skills, and MCP servers along the way. Now it's time to push further with **open-ended challenges**. Lean on everything from Parts 6–8 as you go.
 
 

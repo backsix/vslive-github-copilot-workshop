@@ -2,8 +2,6 @@
 title: "Step 6: Produce a structured report"
 ---
 
-# Step 6: Produce a structured report
-
 > **Time:** 10 minutes
 
 ## What you'll produce

@@ -2,8 +2,6 @@
 title: "Part 08: Commit Summary Descriptions"
 ---
 
-# Part 08: Commit Summary Descriptions
-
 In this section, you'll learn how to use GitHub Copilot to generate commit messages and customize them.
 
 1. [] Open the **Git Changes** view in Visual Studio (**View -> Git Changes**).

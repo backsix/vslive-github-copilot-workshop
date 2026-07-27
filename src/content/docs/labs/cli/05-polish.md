@@ -2,10 +2,6 @@
 title: "Part 5: Polish & Parallel Work"
 ---
 
-# Part 5: Polish & Parallel Work
-
----
-
 Now that the app works and looks great, it's time to polish. This part is about splitting work up so you can improve responsiveness, error handling, and quality without doing everything in a single serial loop.
 
 

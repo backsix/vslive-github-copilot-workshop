@@ -2,8 +2,6 @@
 title: "Step 1: Create your first Copilot session"
 ---
 
-# Step 1: Create your first Copilot session
-
 > **Time:** 10 minutes
 
 ## What you'll build

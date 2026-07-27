@@ -2,8 +2,6 @@
 title: "Part 05: Implementing Features with Copilot Agent"
 ---
 
-# Part 05: Implementing Features with Copilot Agent
-
 Previously we utilized Copilot Chat, which is great for working with an individual file or asking questions about our code. However, many updates necessitate changes to multiple files throughout a codebase. Even a seemingly basic change to a webpage likely requires updating HTML, CSS, Razor, and C# files. Copilot Agent allows you to modify multiple files at once across your project, self heals, and can run commands if granted permission like installing NuGet packages.
 
 With Copilot Agent, you will add the files which need to be updated to the context. Once you provide the prompt, Copilot Agent will begin the updates across all files in the context. It also has the ability to create new files or add files to the context as it deems appropriate.

@@ -2,10 +2,6 @@
 title: "Part 6: Specialized Agents & Custom Instructions"
 ---
 
-# Part 6: Specialized Agents & Custom Instructions
-
----
-
 Your app is built, themed, and polished. Until now Copilot has worked as a **generalist** — it does whatever your current prompt asks. In this part you'll give it **specialized personas** and **always-on project rules** so the *same* prompt produces sharper, more consistent results.
 
 You'll learn three layers of customization:

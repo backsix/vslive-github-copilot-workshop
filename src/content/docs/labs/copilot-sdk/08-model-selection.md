@@ -2,8 +2,6 @@
 title: "Optional: Select a model"
 ---
 
-# Optional: Select a model
-
 > **Time:** 10 minutes  
 > **Prerequisite:** Complete the seven core steps first.
 

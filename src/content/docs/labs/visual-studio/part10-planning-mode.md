@@ -2,8 +2,6 @@
 title: "Part 10: Planning Mode in Agent"
 ---
 
-# Part 10: Planning Mode in Agent
-
 When working on complex features, it's helpful to plan before diving into implementation. GitHub Copilot's Planning Mode in Agent allows you to create a structured plan for implementing new features. This helps ensure you understand the full scope of changes needed before any code is generated.
 
 In this part, you'll use Planning Mode to plan and implement a feature that allows users to navigate directly to a specific product's detail page.

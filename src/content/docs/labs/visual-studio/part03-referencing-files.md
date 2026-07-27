@@ -2,8 +2,6 @@
 title: "Part 03: Referencing Code Files in Chat"
 ---
 
-# Part 03: Referencing Code Files in Chat
-
 In this section, you'll learn how to reference existing code files in your chat conversations.
 
 1. [] Open the **Products.razor** again from the **Store** project.

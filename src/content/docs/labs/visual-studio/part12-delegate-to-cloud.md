@@ -2,8 +2,6 @@
 title: "Part 12: Delegate to the Cloud"
 ---
 
-# Part 12: Delegate to the Cloud
-
 Sometimes you have an idea for a feature or improvement that you want to implement, but you don't have the time to work on it right now. GitHub Copilot's Cloud Agent allows you to delegate tasks to run in the cloud, freeing you to focus on other work while Copilot implements the changes.
 
 In this part, you'll learn how to delegate a task to the cloud to add a dark theme to the TinyShop application.

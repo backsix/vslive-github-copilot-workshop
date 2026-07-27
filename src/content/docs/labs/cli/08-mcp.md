@@ -2,10 +2,6 @@
 title: "Part 8: MCP Servers — Connect Copilot to Live Data & Tools"
 ---
 
-# Part 8: MCP Servers — Connect Copilot to Live Data & Tools
-
----
-
 So far Copilot only sees what you hand it: files you `@`-mention and its own training data. **MCP servers** change that. The [Model Context Protocol](https://modelcontextprotocol.io/) is an open standard that connects Copilot to real, live tools — your GitHub repos, a real browser, up-to-date documentation, and more.
 
 Think of MCP servers like **browser extensions**. Your browser is useful on its own, but a password manager, a grammar checker, and a screenshot tool make it a powerhouse. MCP does the same for Copilot.

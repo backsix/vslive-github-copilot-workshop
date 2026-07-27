@@ -2,8 +2,6 @@
 title: "Preflight: prepare your machine"
 ---
 
-# Preflight: prepare your machine
-
 > **Untimed preparation**  
 > Complete this page before starting the 90-minute workshop.
 

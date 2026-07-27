@@ -1,8 +1,6 @@
 ---
-title: "part11-reusable-prompts"
+title: "Part 11: Reusable Prompt Files"
 ---
-
-﻿# Part 11: Reusable Prompt Files
 
 Prompt files are a powerful way to create standardized, reusable prompts that can be shared across your team. They help ensure consistency in how you interact with GitHub Copilot and can encode best practices for common tasks like code generation, testing, and documentation.
 

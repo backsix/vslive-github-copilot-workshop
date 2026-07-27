@@ -2,8 +2,6 @@
 title: "Part 02: Enhancing UI with Inline Chat"
 ---
 
-# Part 02: Enhancing UI with Inline Chat
-
 Now, you'll improve the loading experience using Copilot's inline chat.
 
 > NOTE: This exercise does supply specific prompts to type, but as part of the learning experience we encourage you to discover how to interact with Copilot. Feel free to talk in natural language, describing what you're looking for or need to accomplish.

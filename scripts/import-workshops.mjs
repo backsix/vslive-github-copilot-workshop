@@ -110,7 +110,9 @@ const normalizeLinks = (markdown, isIndex) =>
   );
 
 const normalizeMarkdown = (sourceFile, destinationFile, options = {}) => {
-  let markdown = readFileSync(sourceFile, 'utf8').replace(/\r\n/g, '\n');
+  let markdown = readFileSync(sourceFile, 'utf8')
+    .replace(/^\uFEFF/, '')
+    .replace(/\r\n/g, '\n');
   if (options.removeTrack) {
     markdown = stripTrack(markdown, options.removeTrack);
   }
@@ -132,6 +134,11 @@ const normalizeMarkdown = (sourceFile, destinationFile, options = {}) => {
     const title = titleFromMarkdown(markdown, basename(sourceFile, '.md'));
     markdown = `---\ntitle: "${title}"\n---\n\n${markdown}`;
   }
+
+  markdown = markdown.replace(
+    /^(---\n[\s\S]*?\n---)\n+(?:#\s+[^\n]+\n+(?:---\n+)?)?/,
+    '$1\n\n'
+  );
 
   if (options.intro) {
     markdown = markdown.replace(

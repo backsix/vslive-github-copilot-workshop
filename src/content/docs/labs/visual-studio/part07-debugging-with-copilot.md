@@ -2,8 +2,6 @@
 title: "Part 07: Debugging with Copilot"
 ---
 
-# Part 07: Debugging with Copilot
-
 In this section, you'll learn how to use Copilot to debug an exception in your application.
 
 1. [] Debug the **AppHost** project if it isn't yet, and open the **store** from the .NET Aspire dashboard.
