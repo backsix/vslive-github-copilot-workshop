@@ -27,6 +27,49 @@
   color: inherit;
 }
 
+.sidebar-content a[data-lesson-tracked] {
+  position: relative;
+  padding-inline-end: 2.15rem;
+}
+
+.lesson-complete-indicator {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: 0.65rem;
+  display: grid;
+  width: 1.1rem;
+  height: 1.1rem;
+  place-items: center;
+  border-radius: 0.3rem;
+  background: var(--workshop-success);
+  color: oklch(0.16 0.02 145);
+  font: 800 0.72rem/1 var(--font-sans);
+  opacity: 0;
+  transform: translateY(-50%) scale(0.75);
+  transition:
+    opacity 180ms var(--workshop-ease),
+    transform 180ms var(--workshop-ease);
+}
+
+:root[data-theme='light'] .lesson-complete-indicator {
+  color: oklch(0.98 0.004 80);
+}
+
+.sidebar-content a[data-lesson-complete='true'] .lesson-complete-indicator {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.lesson-complete-label {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .sl-markdown-content {
   font-size: 1.025rem;
   line-height: 1.72;

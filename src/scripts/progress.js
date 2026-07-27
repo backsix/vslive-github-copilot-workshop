@@ -69,6 +69,38 @@
     : location.pathname.replace(/^\/+/, '');
   const match = normalizedPath.match(/^labs\/([^/]+)\/([^/]+)\/?$/);
 
+  const getLessonId = (href) => {
+    const path = new URL(href, location.href).pathname;
+    const relativePath = path.startsWith(base) ? path.slice(base.length) : path.replace(/^\/+/, '');
+    const lessonMatch = relativePath.match(/^labs\/([^/]+)\/([^/]+)\/?$/);
+    if (!lessonMatch || !labs[lessonMatch[1]]?.includes(lessonMatch[2])) return null;
+    return `${lessonMatch[1]}/${lessonMatch[2]}`;
+  };
+
+  const updateSidebar = () => {
+    document.querySelectorAll('.sidebar-content a[href]').forEach((link) => {
+      const id = getLessonId(link.href);
+      if (!id) return;
+
+      let indicator = link.querySelector('.lesson-complete-indicator');
+      let label = link.querySelector('.lesson-complete-label');
+      if (!indicator || !label) {
+        indicator = document.createElement('span');
+        label = document.createElement('span');
+        indicator.className = 'lesson-complete-indicator';
+        indicator.textContent = '✓';
+        indicator.setAttribute('aria-hidden', 'true');
+        label.className = 'lesson-complete-label';
+        link.append(indicator, label);
+      }
+
+      const complete = Boolean(state[id]);
+      link.dataset.lessonTracked = '';
+      link.dataset.lessonComplete = String(complete);
+      label.textContent = complete ? ' — completed' : '';
+    });
+  };
+
   const updateLanding = () => {
     let completed = 0;
     let total = 0;
@@ -135,6 +167,7 @@
         state[id] = !state[id];
         saveState(state);
         render();
+        updateSidebar();
       });
 
       render();
@@ -143,5 +176,6 @@
     }
   }
 
+  updateSidebar();
   updateLanding();
 })();
