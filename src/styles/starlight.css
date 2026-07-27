@@ -90,6 +90,42 @@
   box-shadow: 0 16px 50px oklch(0 0 0 / 0.16);
 }
 
+.workshop-tabs {
+  margin-block: 1.5rem;
+}
+
+.workshop-tabs [role='tablist'] {
+  display: flex;
+  gap: 0.5rem;
+  padding-block-end: 0.75rem;
+  border-bottom: 1px solid var(--workshop-border);
+}
+
+.workshop-tabs [role='tab'] {
+  min-height: 2.75rem;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--workshop-border);
+  border-radius: 0.55rem;
+  background: transparent;
+  color: var(--workshop-muted);
+  font: 700 0.9rem/1 var(--font-sans);
+  cursor: pointer;
+}
+
+.workshop-tabs [role='tab'][aria-selected='true'] {
+  border-color: var(--workshop-accent);
+  background: color-mix(in oklch, var(--workshop-accent) 18%, var(--workshop-surface));
+  color: var(--workshop-ink);
+}
+
+.workshop-tabs [role='tabpanel'] {
+  padding-block-start: 1rem;
+}
+
+.workshop-tabs [role='tabpanel'] > :first-child {
+  margin-block-start: 0;
+}
+
 .sl-markdown-content input[data-workshop-task] {
   width: 1.15rem;
   height: 1.15rem;

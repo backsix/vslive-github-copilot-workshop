@@ -136,6 +136,70 @@
     }
   };
 
+  const initializeTabs = () => {
+    document.querySelectorAll('[data-tabs]').forEach((tabs, groupIndex) => {
+      const tabList = tabs.querySelector('[role="tablist"]');
+      const tabButtons = [...tabs.querySelectorAll('[role="tab"][data-tab]')];
+      const panels = [...tabs.querySelectorAll('[role="tabpanel"][data-panel]')];
+      if (!tabList || !tabButtons.length || !panels.length) return;
+
+      const panelByName = new Map(panels.map((panel) => [panel.dataset.panel, panel]));
+      const setActiveTab = (name, moveFocus = false) => {
+        const activeTab = tabButtons.find((tab) => tab.dataset.tab === name);
+        const activePanel = panelByName.get(name);
+        if (!activeTab || !activePanel) return;
+
+        tabButtons.forEach((tab) => {
+          const selected = tab === activeTab;
+          tab.setAttribute('aria-selected', String(selected));
+          tab.tabIndex = selected ? 0 : -1;
+        });
+        panels.forEach((panel) => {
+          panel.hidden = panel !== activePanel;
+        });
+        if (moveFocus) activeTab.focus();
+      };
+
+      tabButtons.forEach((tab, tabIndex) => {
+        const panel = panelByName.get(tab.dataset.tab);
+        if (!panel) return;
+
+        const tabId = `workshop-tab-${groupIndex}-${tabIndex}`;
+        const panelId = `workshop-panel-${groupIndex}-${tabIndex}`;
+        tab.id = tabId;
+        tab.setAttribute('aria-controls', panelId);
+        panel.id = panelId;
+        panel.setAttribute('aria-labelledby', tabId);
+
+        tab.addEventListener('click', () => setActiveTab(tab.dataset.tab));
+        tab.addEventListener('keydown', (event) => {
+          const currentIndex = tabButtons.indexOf(tab);
+          let nextIndex = null;
+          if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+            nextIndex = (currentIndex + 1) % tabButtons.length;
+          } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+            nextIndex = (currentIndex - 1 + tabButtons.length) % tabButtons.length;
+          } else if (event.key === 'Home') {
+            nextIndex = 0;
+          } else if (event.key === 'End') {
+            nextIndex = tabButtons.length - 1;
+          }
+
+          if (nextIndex === null) return;
+          event.preventDefault();
+          setActiveTab(tabButtons[nextIndex].dataset.tab, true);
+        });
+      });
+
+      const initiallySelected = tabButtons.find(
+        (tab) => tab.getAttribute('aria-selected') === 'true'
+      );
+      setActiveTab(initiallySelected?.dataset.tab || tabButtons[0].dataset.tab);
+    });
+  };
+
+  initializeTabs();
+
   document.querySelectorAll('.expressive-code pre').forEach((codeBlock) => {
     codeBlock.tabIndex = 0;
     if (!codeBlock.getAttribute('aria-label')) {
