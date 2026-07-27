@@ -45,8 +45,7 @@ Before we begin, let's install the .github + MCP extension for Visual Studio. Th
 1. [] When the browser shows the confirmation, click **Open** to return to Visual Studio.
 1. [] After setup you should see the **GitHub Copilot Walkthrough** tab and the Copilot button should be green.
 
-> [!NOTE]
-> For the hands-on lab exercises that create or modify repository data via cloud agents (Part 12), you'll need to fork the lab repo into your own account. This gives the cloud agent permissions to operate on your fork.
+Part 12 delegates work to a cloud agent and requires a fork where you have write access. If you cloned the source repository directly during [Step 0](../../../prepare/#step-0-fork-or-clone-the-workshop), create your fork before starting Part 12.
 
 ## Turn on Copilot Settings
 
@@ -71,13 +70,10 @@ Before we begin, let's install the .github + MCP extension for Visual Studio. Th
 
 ## Open the included lab solution
 
-The TinyShop source is included in this combined workshop repository.
+The TinyShop source is already included in the workshop repository you cloned during Step 0.
 
-1. [] If you need cloud delegation or repository write access, fork this combined workshop repository to your GitHub account and clone your fork.
-2. [] In Visual Studio, select **File -> Open -> Project/Solution**.
-3. [] Open `labs/03-visual-studio/src/TinyShop.sln`.
-
-If an instructor provided a prepared fork, use that repository instead.
+1. [] In Visual Studio, select **File -> Open -> Project/Solution**.
+2. [] From your cloned workshop folder, open `labs/03-visual-studio/src/TinyShop.sln`.
 
 ## Start the App
 

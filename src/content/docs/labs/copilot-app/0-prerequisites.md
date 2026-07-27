@@ -7,7 +7,7 @@ lastUpdated: 2026-06-30
 ---
 
 > [!NOTE]
-> This lab uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys). Because the exercises use issues, branches, sessions, and pull requests, Lesson 0 guides you through creating your own GitHub repository from that template.
+> This lab intentionally uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys), not a folder from the combined workshop repository. Because the exercises use issues, branches, sessions, and pull requests, Lesson 0 guides you through creating your own repository from that template.
 
 
 The GitHub Copilot app is a desktop app, serving as your central hub for both Copilot and GitHub. It provides quick access to issues and pull requests, and of course allows you to build using GitHub Copilot. During this workshop you'll be working locally, using both the Tailspin Toys app, built on Astro, and of course the GitHub Copilot app. Before you get started, let's ensure Node.js is installed locally, then install the Copilot app.

@@ -2,7 +2,6 @@
 title: "🎮 Mona Mayhem — GitHub Copilot Workshop"
 ---
 
-
 # 🎮 Mona Mayhem — GitHub Copilot Workshop
 
 ---
@@ -73,7 +72,7 @@ Before you begin, verify:
 
 | Part | Title | Description |
 |------|-------|-------------|
-| [**01**](./01-setup/) | Setup & Context Engineering | Create your repo, prepare your environment, and give Copilot the right context |
+| [**01**](./01-setup/) | Setup & Context Engineering | Open the included starter, prepare your environment, and give Copilot the right context |
 | [**02**](./02-plan-and-scaffold/) | Plan & Scaffold | Design the API and page architecture before you implement |
 | [**03**](./03-agent-mode/) | Build the Game | Wire up the battle page and contribution graphs with agentic help |
 | [**04**](./04-design-vibes/) | Design-First Theming | Turn the scaffold into a retro arcade experience |

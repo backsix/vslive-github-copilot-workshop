@@ -2,7 +2,6 @@
 title: "Part 7: Skills — Packaged, Reusable Expertise"
 ---
 
-
 # Part 7: Skills — Packaged, Reusable Expertise
 
 ---

@@ -6,10 +6,6 @@ authors:
 lastUpdated: 2026-07-09
 ---
 
-> [!NOTE]
-> This lab uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys). Because the exercises use issues, branches, sessions, and pull requests, Lesson 0 guides you through creating your own GitHub repository from that template.
-
-
 The **[GitHub Copilot app][about-copilot-app]** is a desktop application for agent-driven development. It is built on GitHub Copilot CLI and integrates natively with GitHub, so your repositories, branches, and CI pipelines work out of the box. It's designed for workflows where you direct several agents in parallel — each in its own isolated workspace — rather than doing all of the work yourself, and automating repetitive tasks. With Node.js installed and your copy of the project ready, the next step is to install the app and connect that repository.
 
 In this lesson, you will:

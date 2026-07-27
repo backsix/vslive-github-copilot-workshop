@@ -2,7 +2,6 @@
 title: "Part 8: MCP Servers — Connect Copilot to Live Data & Tools"
 ---
 
-
 # Part 8: MCP Servers — Connect Copilot to Live Data & Tools
 
 ---

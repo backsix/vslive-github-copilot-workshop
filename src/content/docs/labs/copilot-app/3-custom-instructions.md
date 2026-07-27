@@ -6,10 +6,6 @@ authors:
 lastUpdated: 2026-07-09
 ---
 
-> [!NOTE]
-> This lab uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys). Because the exercises use issues, branches, sessions, and pull requests, Lesson 0 guides you through creating your own GitHub repository from that template.
-
-
 Context is key when working with generative AI. If a task needs to be done a particular way — or there's background information Copilot should know — you want that context available. One of the most powerful tools for this is [instruction files][instruction-files], which describe not just *what* code you want but *how* it should be structured. In this lesson you'll add a documentation standard to your repository, and you'll do it the way you'll do most work from here on: starting from an issue in your backlog and letting the agent make the change.
 
 In this lesson, you will:

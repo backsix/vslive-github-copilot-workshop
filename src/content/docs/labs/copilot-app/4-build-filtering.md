@@ -6,10 +6,6 @@ authors:
 lastUpdated: 2026-07-13
 ---
 
-> [!NOTE]
-> This lab uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys). Because the exercises use issues, branches, sessions, and pull requests, Lesson 0 guides you through creating your own GitHub repository from that template.
-
-
 We've made a couple of small updates to our project thus far. But more robust changes require a more robust process. Fortunately, the GitHub Copilot app is built to work with our existing flow, ensuring we build the right things the right way. This is the first of three lessons where you will follow a typical development process, starting by using an issue to generate a new feature and an agent skill to run the validation tests and linters.
 
 In this lesson, you will:

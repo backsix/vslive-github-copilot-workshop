@@ -33,14 +33,16 @@ $ copilot --version
 GitHub Copilot CLI ...
 ```
 
-## 1. Clone the repository
+## 1. Open the SDK lab folder
+
+From the workshop repository you cloned during [Step 0](../../../prepare/#step-0-fork-or-clone-the-workshop), open the included SDK lab:
 
 ```bash
 cd labs/04-copilot-sdk
 code .
 ```
 
-If `code` is not on your path, use your editor's **Open Folder** command instead.
+If `code` is not on your path, use your editor's **Open Folder** command and select `labs/04-copilot-sdk` instead.
 
 ## 2. Authenticate Copilot
 

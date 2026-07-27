@@ -2,7 +2,6 @@
 title: "Part 1: Setup & Context Engineering"
 ---
 
-
 # Part 1: Setup & Context Engineering
 
 ---
@@ -11,11 +10,15 @@ In this part you'll set up your development environment **and** teach Copilot ab
 
 ## Section 1: Initial Setup
 
-### Step 1: Create Your Repository
+### Step 1: Open the CLI Lab
 
-1. Open the `labs/01-copilot-cli` folder in this repository.
-2. Copy its contents into a new GitHub repository named `my-mona-mayhem`.
-3. Clone your new repository locally, then continue from that folder.
+From the workshop repository root, open a terminal in the included starter:
+
+```bash
+cd labs/01-copilot-cli
+```
+
+Keep your work in this folder. If you forked the workshop repository during [Step 0](../../../prepare/#step-0-fork-or-clone-the-workshop), your changes can be committed and pushed back to that fork.
 
 
 
@@ -44,27 +47,26 @@ Use the installation path that matches your machine:
 
 ### Step 3: Start the App and Authenticate the CLI
 
-1. Clone your repo locally and open a terminal in the project root.
-2. Install dependencies and start the app:
+1. In the terminal already open at `labs/01-copilot-cli`, install dependencies and start the app:
 
    ```bash
    npm install
    npm run dev
    ```
 
-3. Open a **second terminal** in the same repo and start Copilot CLI:
+2. Open a **second terminal** in the same folder and start Copilot CLI:
 
    ```bash
    copilot
    ```
 
-4. In the interactive session, enter:
+3. In the interactive session, enter:
 
    ```
    /login
    ```
 
-5. Follow the device flow prompts, then confirm that you trust the repository when the CLI asks for approval.
+4. Follow the device flow prompts, then confirm that you trust the repository when the CLI asks for approval.
 
 > ✅ **You now have the app preview in one terminal and Copilot CLI ready in another.**
 

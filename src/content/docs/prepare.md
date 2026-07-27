@@ -36,9 +36,27 @@ copilot login
 
 Complete the browser authentication flow. If your organization restricts Copilot, use a personal GitHub account with Copilot access for the workshop.
 
-## Get the workshop repository
+## Step 0: Fork or clone the workshop
 
-Clone or download this repository. Each runnable starter is under `labs/`:
+Do this once before starting the labs. **Forking is recommended** because it gives you a repository where you can push changes, create pull requests, and use cloud agents.
+
+1. Open the [workshop repository](https://github.com/jamesmontemagno/vslive-github-copilot-workshop).
+2. Select **Fork**, then create the fork in your personal GitHub account.
+3. Clone your fork and enter the workshop folder:
+
+   ```bash
+   git clone https://github.com/YOUR-GITHUB-HANDLE/vslive-github-copilot-workshop.git
+   cd vslive-github-copilot-workshop
+   ```
+
+If you only want to work locally, clone the source repository directly instead:
+
+```bash
+git clone https://github.com/jamesmontemagno/vslive-github-copilot-workshop.git
+cd vslive-github-copilot-workshop
+```
+
+The included starters are under `labs/`:
 
 ```text
 labs/
@@ -47,7 +65,18 @@ labs/
 └── 04-copilot-sdk/
 ```
 
-The Copilot app exercises use repository-backed issues, branches, and pull requests. Lesson 0 guides you through creating your own repository from the separate [Tailspin Toys template](https://github.com/github-samples/tailspin-toys).
+## Open the project for each lab
+
+Start each lab from the cloned workshop folder:
+
+| Lab | Open this project |
+|---|---|
+| Copilot CLI | Open a terminal in `labs/01-copilot-cli` and run `copilot` |
+| Copilot app | Create a separate repository from the [Tailspin Toys template](https://github.com/github-samples/tailspin-toys), then open it in the Copilot app |
+| Visual Studio 2026 | Open `labs/03-visual-studio/src/TinyShop.sln` in Visual Studio |
+| Copilot SDK | Open `labs/04-copilot-sdk` in your editor and terminal |
+
+Tailspin Toys is intentionally separate because the Copilot app exercises use its repository-backed issues, branches, and pull requests. Its Lesson 0 walks you through creating that repository.
 
 ## Quick preflight
 
@@ -56,6 +85,7 @@ Before arriving, confirm:
 1. `git`, `node`, `copilot`, and `dotnet` return versions without errors.
 2. You can authenticate with GitHub and Copilot.
 3. Visual Studio 2026 opens the solution at `labs/03-visual-studio/src/TinyShop.sln`.
-4. You can find the three included `labs/` starter folders and access the Tailspin Toys template repository.
+4. You cloned the workshop repository and can find its three included starter folders.
+5. You can access the separate Tailspin Toys template repository.
 
 When everything is ready, [begin with the Copilot CLI lab](./labs/cli/).

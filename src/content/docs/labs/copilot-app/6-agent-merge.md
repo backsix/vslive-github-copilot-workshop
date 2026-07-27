@@ -6,10 +6,6 @@ authors:
 lastUpdated: 2026-07-09
 ---
 
-> [!NOTE]
-> This lab uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys). Because the exercises use issues, branches, sessions, and pull requests, Lesson 0 guides you through creating your own GitHub repository from that template.
-
-
 Your filtering feature is built, verified, and seen working in a browser. The last step is to merge it. You've merged twice already in this harness — both times you opened the pull request and merged it yourself on github.com. This time you'll let the app do the heavy lifting with **Agent Merge**, which shepherds a pull request through its whole lifecycle from inside the app.
 
 In this lesson, you will:

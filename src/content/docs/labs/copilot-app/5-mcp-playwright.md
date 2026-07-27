@@ -6,10 +6,6 @@ authors:
 lastUpdated: 2026-07-09
 ---
 
-> [!NOTE]
-> This lab uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys). Because the exercises use issues, branches, sessions, and pull requests, Lesson 0 guides you through creating your own GitHub repository from that template.
-
-
 In the previous lesson you created and verified the filtering feature with the project's automated test suite. Tests automate validation of code, but allowing the agent to confirm behavior is powerful. It allows an agent to respond to issues it sees in the actual UI it's creating. Let's explore how MCP allows access to external capabilities to AI agents, and add the Playwright MCP server to allow Copilot to interact with the site you're building directly.
 
 In this lesson, you will:

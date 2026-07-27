@@ -2,7 +2,6 @@
 title: "Part 2: Plan & Scaffold"
 ---
 
-
 # Part 2: Plan & Scaffold
 
 ---

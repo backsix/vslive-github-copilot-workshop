@@ -6,10 +6,6 @@ authors:
 lastUpdated: 2026-07-09
 ---
 
-> [!NOTE]
-> This lab uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys). Because the exercises use issues, branches, sessions, and pull requests, Lesson 0 guides you through creating your own GitHub repository from that template.
-
-
 Over the last several lessons, you took a feature from idea to merge with the GitHub Copilot app, including:
 
 - connecting a repository and orienting to the app's workspace and your seeded backlog.
