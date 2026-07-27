@@ -16,7 +16,7 @@ To see your existing tools and MCP servers installed:
 
    ![MCP Tools icon](./images/9-mcp-tools.png)
 1. Tools that are built in and from MCP servers will appear.
-1. Click the **+** icon to add a new MCP server and **Add from MCP MCP**.
+1. Click the **+** icon to add a new MCP server and **Add from MCP Registry**.
 1. 
    ![Add MCP server](./images/9-add-mcp-server.png)
 1. Specify the following

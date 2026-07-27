@@ -345,6 +345,7 @@ importMarkdownDirectory(
       [/\(\.\/images\/4-instructions\.png\)/g, '(./images/04-instructions.png)'],
       [/\(\.\/impags\//g, '(./images/'],
       [/agent mdoe/g, 'agent mode'],
+      [/Add from MCP MCP/g, 'Add from MCP Registry'],
       [
         /> \[!NOTE\]\n> For the hands-on lab exercises that create or modify repository data via cloud agents \(Part 12\), you'll need to fork the lab repo into your own account\. This gives the cloud agent permissions to operate on your fork\./,
         'Part 12 delegates work to a cloud agent and requires a fork where you have write access. If you cloned the source repository directly during [Step 0](../../../prepare/#step-0-fork-or-clone-the-workshop), create your fork before starting Part 12.'

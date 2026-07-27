@@ -53,6 +53,9 @@ const walk = (directory) => {
       if (/]\([^)\s]+\.md(?:#[^)]+)?\)/.test(markdown)) {
         errors.push(`Unnormalized Markdown link: ${path}`);
       }
+      if (markdown.includes('Add from MCP MCP')) {
+        errors.push(`Incorrect MCP Registry label: ${path}`);
+      }
       for (const line of findMalformedTaskMarkers(markdown)) {
         errors.push(`Malformed task marker at ${path}:${line}; use [ ] instead of []`);
       }
