@@ -6,30 +6,30 @@ In this section, you'll use GitHub Copilot's code completion to implement API en
 
 > IMPORTANT: For this exercise, **DO NOT** copy and paste the code snippet provided, but rather type it manually. This will allow you to experience code completion as you would if you were coding back at your desk. You'll likely see you only have to type a few characters before GitHub Copilot begins suggesting the rest.
 
-1. [] Stop debugging the application if it is currently running.
+1. [ ] Stop debugging the application if it is currently running.
 
 
-1. [] In the Solution Explorer, in the **Products** project, open **Endpoints/ProductEndpoints.cs** - it will have a single endpoint implemented.
+1. [ ] In the Solution Explorer, in the **Products** project, open **Endpoints/ProductEndpoints.cs** - it will have a single endpoint implemented.
 
    > Note: GitHub Copilot will not give code suggestions when debugging.
    
-1. [] Let's implement a new **MapGet** to get product details for a specific **id**. Move our cursor and click on line 20 under the existing **/** endpoint. Text suggestion may appear or type:
+1. [ ] Let's implement a new **MapGet** to get product details for a specific **id**. Move our cursor and click on line 20 under the existing **/** endpoint. Text suggestion may appear or type:
    ```csharp
    group.
    ```
-1. [] Wait for the ghost text suggestions to appear (gray text).
+1. [ ] Wait for the ghost text suggestions to appear (gray text).
 
 > If ghost text doesn't appare and only regular IntelliSense, exit IntelliSense with `ESC` and then press `ALT+.`.
 
    ![Code suggestions](./images/1-ghost-text.png)
 
-1. [] Press Tab to accept the suggestion or continue typing to get more specific suggestions.
+1. [ ] Press Tab to accept the suggestion or continue typing to get more specific suggestions.
 
-1. [] From there Next Edit Suggetions (NES) or addtional Ghost Text suggestions will appear. 
+1. [ ] From there Next Edit Suggetions (NES) or addtional Ghost Text suggestions will appear.
 
    ![NES showing up](./images/1-nes.png)
 
-1. [] We now can implement the following endpoints using GitHub Copilot:
+1. [ ] We now can implement the following endpoints using GitHub Copilot:
    - POST to create a new product
    - PUT to update a product
    - DELETE to remove a product
@@ -170,20 +170,20 @@ In this section, you'll use GitHub Copilot's code completion to implement API en
 
 1. Click on **Keep** after reviewing changes in the GitHub Copilot Chat window.
 
-1. [] Go back to **ProductEndpoints.cs**, and try changing the variable name of **id** to `productId` in the new **MapGet** method and see Next Edit Suggestions help out.
+1. [ ] Go back to **ProductEndpoints.cs**, and try changing the variable name of **id** to `productId` in the new **MapGet** method and see Next Edit Suggestions help out.
 
    ![NES suggestions more](./images/1-nes-2.png)
 
-1. [] Try using documentation generation:
+1. [ ] Try using documentation generation:
    - Type `///` above a method to generate XML documentation on the **MapProductEndpoints** this can also be brought up with `Alt+/` for inline and then entering **/** which will bring up a list of commands. The documentation generation will appear as ghost text and can be accepted with `Tab`.
 
    ![documentation generation by Copilot](./images/1-docs.png)
 
-1. [] Test your implementation:
+1. [ ] Test your implementation:
    - Run the AppHost project.
    - Test your new endpoints by going to **https://localhost:7130/api/Product/1**
 
-1. [] Stop debugging and close the application
+1. [ ] Stop debugging and close the application
 
 ---
 

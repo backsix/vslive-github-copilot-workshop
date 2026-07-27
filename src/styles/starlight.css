@@ -90,6 +90,24 @@
   box-shadow: 0 16px 50px oklch(0 0 0 / 0.16);
 }
 
+.sl-markdown-content input[data-workshop-task] {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-block: 0.2rem 0;
+  accent-color: var(--workshop-success);
+  cursor: pointer;
+  opacity: 1;
+}
+
+.sl-markdown-content input[data-workshop-task]:focus-visible {
+  outline: 3px solid var(--sl-color-accent-high);
+  outline-offset: 3px;
+}
+
+.sl-markdown-content li:has(> input[data-workshop-task]:checked) {
+  color: color-mix(in oklch, var(--workshop-ink) 72%, var(--workshop-success));
+}
+
 .lesson-progress {
   display: flex;
   align-items: center;

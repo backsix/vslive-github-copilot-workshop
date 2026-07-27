@@ -18,24 +18,24 @@ Prompt files are markdown files stored in the `.github/prompts` folder of your r
 
 The solution already includes a **TinyShop.Tests** project with MSTest configured. Let's take a look at what's there.
 
-1. [] In **Solution Explorer**, expand the **TinyShop.Tests** project.
-1. [] Open **ProductTests.cs** to see the existing reference test.
-1. [] Notice the test follows the Arrange-Act-Assert pattern and verifies default values for a new Product instance.
+1. [ ] In **Solution Explorer**, expand the **TinyShop.Tests** project.
+1. [ ] Open **ProductTests.cs** to see the existing reference test.
+1. [ ] Notice the test follows the Arrange-Act-Assert pattern and verifies default values for a new Product instance.
 
 ## Creating a Unit Test Prompt File
 
 Now let's create a prompt file that helps generate additional unit tests using MSTest.
 
-1. [] In **Solution Explorer** we will see the **GitHub** node from the extension to add it easily:
+1. [ ] In **Solution Explorer** we will see the **GitHub** node from the extension to add it easily:
    - Right-Click the **GitHub** node icon/extension in Visual Studio.
    - Choose **Add Agent File...**.
    - Select **Prompt file...** from the dialog.
    - Change the file name to `unit-test.prompt.md` and click **OK**.
    - The new file will open in the editor; paste the content shown below into the file and save it.
 
-1. [] If you can create the file manually in file explorer, add a new file named `unit-test.prompt.md` under `.github/prompts` and paste the content below.
+1. [ ] If you can create the file manually in file explorer, add a new file named `unit-test.prompt.md` under `.github/prompts` and paste the content below.
 
-1. [] Update the prompt file with the following content:
+1. [ ] Update the prompt file with the following content:
 
    ```markdown
    ---
@@ -68,19 +68,19 @@ Now let's create a prompt file that helps generate additional unit tests using M
    Generate tests for: ${input:Describe what you want to test}
    ```
 
-1. [] Save the file.
+1. [ ] Save the file.
 
 ## Using the Reusable Prompt
 
 Now let's use our new prompt file to generate additional unit tests for the Product class.
 
-1. [] In Copilot Chat, type `/` to see available prompt files.
-1. [] Select `unit-test` from the list of available prompts.
-1. [] When prompted for input, type: `the Product class in DataEntities, including tests for setting and getting each property, and tests using DataRow for multiple values`
+1. [ ] In Copilot Chat, type `/` to see available prompt files.
+1. [ ] Select `unit-test` from the list of available prompts.
+1. [ ] When prompted for input, type: `the Product class in DataEntities, including tests for setting and getting each property, and tests using DataRow for multiple values`
 
    ![Using a prompt file](./images/11-prompt-file.png)
 
-1. [] Review the generated tests. They should include:
+1. [ ] Review the generated tests. They should include:
    - Tests for each property (Name, Description, Price, ImageUrl)
    - Tests using DataRow for parameterized testing
    - Proper test method naming following the pattern
@@ -141,10 +141,10 @@ public void ImageUrl_SetValue_ReturnsExpectedValue(string imageUrl)
 
 ## Running the Tests
 
-1. [] Open **Test Explorer** from **Test -> Test Explorer**.
-1. [] Build the solution to discover the tests.
-1. [] Click **Run All** to run all tests including the new generated tests.
-1. [] Verify that all tests pass.
+1. [ ] Open **Test Explorer** from **Test -> Test Explorer**.
+1. [ ] Build the solution to discover the tests.
+1. [ ] Click **Run All** to run all tests including the new generated tests.
+1. [ ] Verify that all tests pass.
 
 **Key Takeaway**: Reusable prompt files help standardize how your team uses GitHub Copilot. By creating prompts for common tasks like unit testing, you ensure consistency and encode best practices that everyone on the team can benefit from.
 

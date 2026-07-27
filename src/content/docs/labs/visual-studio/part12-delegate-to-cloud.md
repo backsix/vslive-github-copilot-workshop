@@ -23,9 +23,9 @@ This is particularly useful for:
 
 Before delegating to the cloud, it's important to write a clear, detailed prompt. The cloud agent doesn't have access to your immediate context, so your prompt should include all necessary information.
 
-1. [] Think about the feature you want to implement. For this lab, we'll add a dark theme to the TinyShop application.
+1. [ ] Think about the feature you want to implement. For this lab, we'll add a dark theme to the TinyShop application.
 
-1. [] Consider what details the cloud agent will need:
+1. [ ] Consider what details the cloud agent will need:
    - What colors should the dark theme use?
    - Should it include a toggle for users to switch themes?
    - Where should theme styles be placed?
@@ -33,12 +33,12 @@ Before delegating to the cloud, it's important to write a clear, detailed prompt
 
 ## Delegating to the Cloud
 
-1. [] Open Copilot Chat and create a new chat
+1. [ ] Open Copilot Chat and create a new chat
 1. Switch to **Cloud** agent.
 
    ![Cloud agent](./images/12-cloud-agent.png)
 
-1. [] Enter a detailed prompt for the dark theme feature:
+1. [ ] Enter a detailed prompt for the dark theme feature:
 
    ```
    Add a dark theme to the TinyShop Blazor application with the following requirements:
@@ -68,15 +68,15 @@ Before delegating to the cloud, it's important to write a clear, detailed prompt
       - Buttons and form elements
    ```
 
-1. [] Review the prompt to ensure it includes all necessary details.
-1. [] Click on the **Send** button (cloud icon) at the bottom of the chat window.
+1. [ ] Review the prompt to ensure it includes all necessary details.
+1. [ ] Click on the **Send** button (cloud icon) at the bottom of the chat window.
 
 1. The cloud agent will acknowledge the request and begin processing it.
-1. [] You will be prompted to confirm the delegation and create an issue. Click **Confirm** to proceed.
+1. [ ] You will be prompted to confirm the delegation and create an issue. Click **Confirm** to proceed.
 
    ![Confirm cloud](./images/12-confirm.png)
 
-1. [] After the issue has been created you will be able to view the pull request for the changes in in Visual Studio or on GitHub.
+1. [ ] After the issue has been created you will be able to view the pull request for the changes in in Visual Studio or on GitHub.
   ![View Pull Request](./images/12-view-pull-request.png)
 
 1. When viewing on GitHub, you can see the proposed changes in the pull request, and view the session to see it in realtime.
@@ -88,9 +88,9 @@ Before delegating to the cloud, it's important to write a clear, detailed prompt
 
 After submitting, you'll see a confirmation that your task has been delegated. You can:
 
-1. [] Continue working on other tasks in Visual Studio.
-1. [] Check the status of your cloud task in the pull request window.
-1. [] Receive a notification when the task is complete.
+1. [ ] Continue working on other tasks in Visual Studio.
+1. [ ] Check the status of your cloud task in the pull request window.
+1. [ ] Receive a notification when the task is complete.
 
 > [!TIP]
 > Cloud Agent tasks typically take several minutes to complete, depending on the complexity of the request. 
@@ -98,12 +98,12 @@ After submitting, you'll see a confirmation that your task has been delegated. Y
 
 ## Testing the Dark Theme
 
-1. [] Once the cloud agent has completed the task, review the changes in the pull request and checkout the branch that the changes were made on.
-1. [] Run the application with F5 or Debug -> Start Debugging.
-1. [] Click the theme toggle button in the navigation bar.
-1. [] Verify that the dark theme is applied correctly.
-1. [] Refresh the page and verify the theme preference is persisted.
-1. [] Switch back to light theme and verify it works both ways.
+1. [ ] Once the cloud agent has completed the task, review the changes in the pull request and checkout the branch that the changes were made on.
+1. [ ] Run the application with F5 or Debug -> Start Debugging.
+1. [ ] Click the theme toggle button in the navigation bar.
+1. [ ] Verify that the dark theme is applied correctly.
+1. [ ] Refresh the page and verify the theme preference is persisted.
+1. [ ] Switch back to light theme and verify it works both ways.
 
 **Key Takeaway**: Delegating to the Cloud lets you offload complex tasks to GitHub Copilot while you focus on other work. This is especially valuable for time-consuming implementations or when you want to explore ideas without blocking your immediate workflow.
 

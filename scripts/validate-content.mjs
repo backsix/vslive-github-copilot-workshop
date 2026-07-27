@@ -14,6 +14,23 @@ const required = [
 ];
 const errors = [];
 
+const findMalformedTaskMarkers = (markdown) => {
+  const malformed = [];
+  let fence = null;
+  markdown.split(/\r?\n/).forEach((line, index) => {
+    const fenceMatch = line.match(/^\s*(`{3,}|~{3,})/);
+    if (fenceMatch) {
+      const marker = fenceMatch[1][0];
+      fence = fence === marker ? null : marker;
+      return;
+    }
+    if (!fence && /^\s*(?:[-*+]|\d+\.)\s+\[\](?=\s)/.test(line)) {
+      malformed.push(index + 1);
+    }
+  });
+  return malformed;
+};
+
 for (const path of required) {
   if (!existsSync(join(docsRoot, path))) errors.push(`Missing required page: ${path}`);
 }
@@ -27,6 +44,9 @@ const walk = (directory) => {
       if (!/^---\r?\n/.test(markdown)) errors.push(`Missing frontmatter: ${path}`);
       if (/]\([^)\s]+\.md(?:#[^)]+)?\)/.test(markdown)) {
         errors.push(`Unnormalized Markdown link: ${path}`);
+      }
+      for (const line of findMalformedTaskMarkers(markdown)) {
+        errors.push(`Malformed task marker at ${path}:${line}; use [ ] instead of []`);
       }
       for (const image of markdown.matchAll(/!\[[^\]]*]\((?!https?:|data:)([^)\s]+)\)/g)) {
         const imagePath = resolve(path, '..', image[1].split(/[?#]/)[0]);

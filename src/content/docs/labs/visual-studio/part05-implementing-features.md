@@ -8,21 +8,21 @@ With Copilot Agent, you will add the files which need to be updated to the conte
 
 Let's add the ability to see a list of images into the app:
 
-1. [] Open GitHub Copilot Chat in the top-right corner of Visual Studio and select **Open Chat Window** or press `Ctrl+\+C` if Copilot chat isn't open.
+1. [ ] Open GitHub Copilot Chat in the top-right corner of Visual Studio and select **Open Chat Window** or press `Ctrl+\+C` if Copilot chat isn't open.
 
-1. [] In Visual Studio, open a new Copilot Chat with the **+** chat icon.
+1. [ ] In Visual Studio, open a new Copilot Chat with the **+** chat icon.
 
     ![New chat icon in VS copilot](./images/5-new-edits.png)
 
-1. [] Switch to **Agent** mode.
+1. [ ] Switch to **Agent** mode.
 
    ![Switch to agent mode](./images/1-agent.png)
 
-1. [] At the bottom of the GitHub Copilot Chat pane, select the model (default is "Auto") from the dropdown list, and select **GPT-5.3 Codex** from the list of available models.
+1. [ ] At the bottom of the GitHub Copilot Chat pane, select the model (default is "Auto") from the dropdown list, and select **GPT-5.3 Codex** from the list of available models.
 
     ![Select Opus in Copilot](./images/5-select-sonnet.png)
 
-1. [] Type: `Implement a simple product listing page in Products.razor that fetches products from #ProductService and displays them in a simple list with product name, description, price, and image.`
+1. [ ] Type: `Implement a simple product listing page in Products.razor that fetches products from #ProductService and displays them in a simple list with product name, description, price, and image.`
 
     > NOTE: You should use your own phrasing when generating the prompt. As highlighted previously, part of the exercise is to become comfortable creating prompts for GitHub Copilot. One key tip is it's always good to provide more guidance to ensure you get the code you are looking for.
 
@@ -36,7 +36,7 @@ Unlike our prior examples where we worked with an individual file, we're now wor
 
 GitHub Copilot will propose the following changes to the application including updating the Products.razor and adding a Products.razor.css and maybe more.
 
-1. [] Review the code changes from Agent mode
+1. [ ] Review the code changes from Agent mode
 
     The code should look similar to the following:
     ```html
@@ -84,9 +84,9 @@ GitHub Copilot will propose the following changes to the application including u
     }
     ```
 
-1. [] Run the application to see your new product listing page.
+1. [ ] Run the application to see your new product listing page.
 
-1. [] Stop debugging and close the application
+1. [ ] Stop debugging and close the application
 
 **Key Takeaway**: Copilot Agent can generate complete feature implementations based on your natural language descriptions, saving significant development time.
 

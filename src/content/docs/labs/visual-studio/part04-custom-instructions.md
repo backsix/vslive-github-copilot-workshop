@@ -23,9 +23,9 @@ Here are some guidelines to consider when creating a Copilot instructions file:
 
 ## Create a Copilot instructions file
 
-1. [] In the **Solution Explorer**, expand the **GitHub Node** and open **copilot-instructions.md**
+1. [ ] In the **Solution Explorer**, expand the **GitHub Node** and open **copilot-instructions.md**
 
-1. [] Add project-specific information about your application:
+1. [ ] Add project-specific information about your application:
 
     ```markdown
     ### Backend
@@ -44,10 +44,10 @@ Here are some guidelines to consider when creating a Copilot instructions file:
 
    ![New chat](./images/5-new-edits.png)
 
-1. [] Go back to Copilot Chat and re-run the prompt from Part 03, you can do this by pressing the up key. or
-1. [] Ask: `How would I implement getting and visualizing the products in a table using the code in #ProductService and the css required.`
-1. [] Review the code suggestion but don't implement it yet.
-1. [] Notice how the responses now incorporate your custom instructions.
+1. [ ] Go back to Copilot Chat and re-run the prompt from Part 03, you can do this by pressing the up key. or
+1. [ ] Ask: `How would I implement getting and visualizing the products in a table using the code in #ProductService and the css required.`
+1. [ ] Review the code suggestion but don't implement it yet.
+1. [ ] Notice how the responses now incorporate your custom instructions.
 
 ![Instructions begin referenced](./images/04-instructions.png)
 

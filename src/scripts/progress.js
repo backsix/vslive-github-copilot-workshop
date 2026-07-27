@@ -1,5 +1,6 @@
 (() => {
   const storageKey = 'vslive-workshop-progress-v1';
+  const taskStorageKey = 'vslive-workshop-task-progress-v1';
   const base = document.querySelector('meta[name="workshop-base"]')?.content || '/';
   const labs = {
     cli: [
@@ -53,17 +54,18 @@
     ]
   };
 
-  const parseState = () => {
+  const parseState = (key) => {
     try {
-      const parsed = JSON.parse(localStorage.getItem(storageKey) || '{}');
+      const parsed = JSON.parse(localStorage.getItem(key) || '{}');
       return parsed && typeof parsed === 'object' ? parsed : {};
     } catch {
       return {};
     }
   };
 
-  const saveState = (state) => localStorage.setItem(storageKey, JSON.stringify(state));
-  const state = parseState();
+  const saveState = (key, value) => localStorage.setItem(key, JSON.stringify(value));
+  const state = parseState(storageKey);
+  const taskState = parseState(taskStorageKey);
   const normalizedPath = location.pathname.startsWith(base)
     ? location.pathname.slice(base.length)
     : location.pathname.replace(/^\/+/, '');
@@ -141,6 +143,27 @@
     }
   });
 
+  document
+    .querySelectorAll('main .sl-markdown-content input[type="checkbox"]')
+    .forEach((checkbox, index) => {
+      const taskId = `${normalizedPath.replace(/\/+$/, '') || 'home'}#task-${index}`;
+      const hasSavedState = Object.prototype.hasOwnProperty.call(taskState, taskId);
+      const itemText = checkbox.closest('li')?.textContent?.replace(/\s+/g, ' ').trim();
+
+      checkbox.disabled = false;
+      checkbox.dataset.workshopTask = '';
+      checkbox.checked = hasSavedState ? Boolean(taskState[taskId]) : checkbox.defaultChecked;
+      checkbox.setAttribute(
+        'aria-label',
+        itemText ? `Complete task: ${itemText}` : `Complete task ${index + 1}`
+      );
+
+      checkbox.addEventListener('change', () => {
+        taskState[taskId] = checkbox.checked;
+        saveState(taskStorageKey, taskState);
+      });
+    });
+
   if (match && labs[match[1]]?.includes(match[2])) {
     const id = `${match[1]}/${match[2]}`;
     const container = document.querySelector('main .sl-markdown-content');
@@ -165,7 +188,7 @@
 
       button.addEventListener('click', () => {
         state[id] = !state[id];
-        saveState(state);
+        saveState(storageKey, state);
         render();
         updateSidebar();
       });

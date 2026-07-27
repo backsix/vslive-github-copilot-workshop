@@ -6,15 +6,15 @@ Now, you'll improve the loading experience using Copilot's inline chat.
 
 > NOTE: This exercise does supply specific prompts to type, but as part of the learning experience we encourage you to discover how to interact with Copilot. Feel free to talk in natural language, describing what you're looking for or need to accomplish.
 
-1. [] In the **Solution explorer** under the **Store** project open **Components/Pages/Products.razor**.
-1. [] Find the "Loading..." text in the code.
-1. [] Select this text and right-click.
-1. [] Choose "Chat" or press `Alt+/`.
-1. [] In the inline chat, type: `Update this razor to have a simple spinner style, using built in bootstrap styles.`
+1. [ ] In the **Solution explorer** under the **Store** project open **Components/Pages/Products.razor**.
+1. [ ] Find the "Loading..." text in the code.
+1. [ ] Select this text and right-click.
+1. [ ] Choose "Chat" or press `Alt+/`.
+1. [ ] In the inline chat, type: `Update this razor to have a simple spinner style, using built in bootstrap styles.`
 
     ![Screenshot of VS with inline chat](./images/2-inline-code.png)
 
-1. [] Select **Tab** to accept the changes, and it should look similar to:  
+1. [ ] Select **Tab** to accept the changes, and it should look similar to:
 
     ```html
     <div class="spinner-border text-primary" role="status">
@@ -22,9 +22,9 @@ Now, you'll improve the loading experience using Copilot's inline chat.
     </div>
     ```
 
-1. [] Run the application to see your new loading spinner in action.
+1. [ ] Run the application to see your new loading spinner in action.
 
-1. [] Stop debugging and close the application
+1. [ ] Stop debugging and close the application
 
 **Key Takeaway**: Inline chat allows you to make targeted improvements to your code without leaving your editor context.
 

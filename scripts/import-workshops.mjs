@@ -109,6 +109,27 @@ const normalizeLinks = (markdown, isIndex) =>
     (_, prefix, slug, hash = '') => `${prefix}${isIndex ? './' : '../'}${slug}/${hash}`
   );
 
+const normalizeTaskMarkers = (markdown) => {
+  let fence = null;
+  return markdown
+    .split('\n')
+    .map((line) => {
+      const fenceMatch = line.match(/^\s*(`{3,}|~{3,})/);
+      if (fenceMatch) {
+        const marker = fenceMatch[1][0];
+        fence = fence === marker ? null : marker;
+        return line;
+      }
+      if (fence) return line;
+      const normalized = line.replace(
+        /^(\s*(?:[-*+]|\d+\.)\s+)\[\](?=\s)/,
+        '$1[ ]'
+      );
+      return normalized === line ? line : normalized.trimEnd();
+    })
+    .join('\n');
+};
+
 const normalizeMarkdown = (sourceFile, destinationFile, options = {}) => {
   let markdown = readFileSync(sourceFile, 'utf8')
     .replace(/^\uFEFF/, '')
@@ -147,6 +168,7 @@ const normalizeMarkdown = (sourceFile, destinationFile, options = {}) => {
     );
   }
 
+  markdown = normalizeTaskMarkers(markdown);
   mkdirSync(dirname(destinationFile), { recursive: true });
   writeFileSync(destinationFile, markdown.trimEnd() + '\n');
 };
@@ -272,8 +294,8 @@ importMarkdownDirectory(
 
 The TinyShop source is already included in the workshop repository you cloned during Step 0.
 
-1. [] In Visual Studio, select **File -> Open -> Project/Solution**.
-2. [] From your cloned workshop folder, open \`labs/03-visual-studio/src/TinyShop.sln\`.`
+1. [ ] In Visual Studio, select **File -> Open -> Project/Solution**.
+2. [ ] From your cloned workshop folder, open \`labs/03-visual-studio/src/TinyShop.sln\`.`
       ]
     ]
   }
