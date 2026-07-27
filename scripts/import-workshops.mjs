@@ -404,6 +404,10 @@ code .
       [
         /github\.com\/codemillmatt\/copilot-sdk-workshop/g,
         'github.com/jamesmontemagno/copilot-sdk-workshop'
+      ],
+      [
+        /\{\{TARGET_APP_URL\}\}/g,
+        'https://jamesmontemagno.github.io/copilot-sdk-workshop/target-app/'
       ]
     ]
   }

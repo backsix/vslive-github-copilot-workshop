@@ -108,7 +108,7 @@ Build succeeded.
 Open the controlled target page once to make sure you can reach it:
 
 ```text
-{{TARGET_APP_URL}}
+https://jamesmontemagno.github.io/copilot-sdk-workshop/target-app/
 ```
 
 <details>

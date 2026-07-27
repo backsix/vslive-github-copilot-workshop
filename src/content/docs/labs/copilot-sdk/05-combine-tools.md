@@ -90,7 +90,7 @@ dotnet run --project workshop-app
 Paste this URL when prompted:
 
 ```text
-{{TARGET_APP_URL}}
+https://jamesmontemagno.github.io/copilot-sdk-workshop/target-app/
 ```
 
 You should see activity from both kinds of tool:

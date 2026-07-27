@@ -56,6 +56,9 @@ const walk = (directory) => {
       if (markdown.includes('Add from MCP MCP')) {
         errors.push(`Incorrect MCP Registry label: ${path}`);
       }
+      if (markdown.includes('{{TARGET_APP_URL}}')) {
+        errors.push(`Unresolved SDK target URL placeholder: ${path}`);
+      }
       for (const line of findMalformedTaskMarkers(markdown)) {
         errors.push(`Malformed task marker at ${path}:${line}; use [ ] instead of []`);
       }

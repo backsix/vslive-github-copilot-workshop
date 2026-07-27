@@ -81,7 +81,7 @@ dotnet run --project workshop-app
 When the app asks for a URL, paste:
 
 ```text
-{{TARGET_APP_URL}}
+https://jamesmontemagno.github.io/copilot-sdk-workshop/target-app/
 ```
 
 The report should follow this shape:

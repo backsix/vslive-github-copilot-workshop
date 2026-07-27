@@ -171,7 +171,7 @@ await ResponseStreamer.SendAndPrintAsync(
 ## Run it
 
 ```bash
-dotnet run --project workshop-app -- "{{TARGET_APP_URL}}"
+dotnet run --project workshop-app -- "https://jamesmontemagno.github.io/copilot-sdk-workshop/target-app/"
 ```
 
 The first run may take longer while `npx` starts Playwright. Look for:

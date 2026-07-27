@@ -53,7 +53,7 @@ dotnet run --project workshop-app
 Use the workshop target:
 
 ```text
-{{TARGET_APP_URL}}
+https://jamesmontemagno.github.io/copilot-sdk-workshop/target-app/
 ```
 
 Watch for all five stages:
