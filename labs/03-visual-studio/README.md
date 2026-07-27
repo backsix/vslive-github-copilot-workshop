@@ -1,8 +1,4 @@
-<p align="center">
-<img src="img/banner.jpg" alt="decorative banner" width="1200"/>
-</p>
-
-# LAB300 - Hands-on with GitHub Copilot in Visual Studio 2026
+# Hands-on with GitHub Copilot in Visual Studio 2026
 
 [![Workshop Site](https://img.shields.io/badge/Workshop-Site-blueviolet?style=for-the-badge)](https://dotnet-presentations.github.io/visual-studio-github-copilot-lab/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-blue?style=for-the-badge&logo=github)](https://dotnet-presentations.github.io/visual-studio-github-copilot-lab/)
