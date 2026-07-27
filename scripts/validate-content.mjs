@@ -151,6 +151,10 @@ for (const [index, heading] of [
 
 const hostedTargetAppUrl =
   'https://jamesmontemagno.github.io/vslive-github-copilot-workshop/target-app/';
+const sdkIndex = readFileSync(join(docsRoot, 'labs', 'copilot-sdk', 'index.md'), 'utf8');
+if (!sdkIndex.includes(hostedTargetAppUrl)) {
+  errors.push('The SDK overview must link to the hosted target app.');
+}
 for (const name of [
   '00-preflight.md',
   '04-mcp-safety.md',
