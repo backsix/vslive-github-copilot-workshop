@@ -9,8 +9,11 @@ await client.StartAsync();
 var ping = await client.PingAsync("workshop");
 Console.WriteLine($"Connected to the Copilot runtime: {ping.Message}\n");
 
+var selectedModel = await ModelSelector.SelectAsync(client);
+
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
+    Model = selectedModel,
     Streaming = true,
     Tools = [AccessibilityRuleCatalog.CreateLookupTool()],
     AvailableTools = ["accessibility_rule_lookup"]

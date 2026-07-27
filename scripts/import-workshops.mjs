@@ -27,6 +27,38 @@ const contentRoot = join(root, 'src', 'content', 'docs', 'labs');
 const labsRoot = join(root, 'labs');
 const targetAppUrl =
   'https://jamesmontemagno.github.io/vslive-github-copilot-workshop/target-app/';
+const modelSelectorSource = (rootNamespace) => `using GitHub.Copilot;
+
+namespace ${rootNamespace}.Helpers;
+
+public static class ModelSelector
+{
+    public static async Task<string?> SelectAsync(CopilotClient client)
+    {
+        var models = (await client.ListModelsAsync())?.ToList();
+        if (models is null || models.Count is 0)
+        {
+            Console.WriteLine("No model list was returned; using the account default.");
+            return null;
+        }
+
+        Console.WriteLine("Available models:");
+        for (var index = 0; index < models.Count; index++)
+        {
+            Console.WriteLine($"{index + 1}. {models[index].Name}");
+        }
+
+        Console.Write($"Choose 1-{models.Count} [1]: ");
+        var valid = int.TryParse(Console.ReadLine(), out var choice) &&
+                    choice >= 1 &&
+                    choice <= models.Count;
+        var selected = models[(valid ? choice : 1) - 1];
+
+        Console.WriteLine($"Using {selected.Name}\\n");
+        return selected.Id;
+    }
+}
+`;
 
 const cleanTargets = [
   join(contentRoot, 'cli'),
@@ -452,19 +484,43 @@ Console.WriteLine($"Connected to the Copilot runtime: {ping.Message}");
 
 \`PingAsync\` performs a lightweight health check, giving you an immediate confirmation that the app can reach Copilot. Print the returned message so connection failures are obvious before you create a session.
 
-### 4. Create a conversation and send a prompt
+### 4. Choose a model for the session
+
+Create \`workshop-app/Helpers/ModelSelector.cs\`:
+
+\`\`\`csharp
+${modelSelectorSource('HelloCopilotSDK').trimEnd()}
+\`\`\`
+
+The helper asks the runtime which models your signed-in account can use, shows each model's display name, and returns the selected model ID. If no list is available, it returns \`null\`, which keeps the account default. Invalid input falls back to the first listed model so this learning example always has a predictable choice.
+
+Back in \`Program.cs\`, add the helper namespace and select the model after the connection check:
+
+\`\`\`csharp
+using HelloCopilotSDK.Helpers;
+
+// Add this after the PingAsync output.
+var selectedModel = await ModelSelector.SelectAsync(client);
+\`\`\`
+
+The selected ID is configuration for every session you create. Keep this variable in later steps and pass it into each new \`SessionConfig\`.
+
+### 5. Create a conversation and send a prompt
 
 Add the session and request:
 
 \`\`\`csharp
-await using var session = await client.CreateSessionAsync(new SessionConfig());
+await using var session = await client.CreateSessionAsync(new SessionConfig
+{
+    Model = selectedModel
+});
 var response = await session.SendAndWaitAsync(
     "In one sentence, explain why an accessible name matters for a form input.");
 \`\`\`
 
-A \`CopilotSession\` owns one conversation and its context. \`SendAndWaitAsync\` sends the prompt and waits until the session is idle, which is ideal when you need one completed answer.
+A \`CopilotSession\` owns one conversation and its context. \`Model\` selects the model for that session, while \`SendAndWaitAsync\` sends the prompt and waits until the session is idle.
 
-### 5. Check and print the response
+### 6. Check and print the response
 
 Finish the program with:
 
@@ -493,6 +549,59 @@ for (const template of ['visual-studio', 'copilot-sdk']) {
     join(contentRoot, template, 'index.md')
   );
 }
+cpSync(
+  join(root, 'scripts', 'templates', 'copilot-sdk-model-selection.md'),
+  join(contentRoot, 'copilot-sdk', '08-model-selection.md')
+);
+
+const configureSdkLessonModelSelection = () => {
+  for (const name of [
+    '01-first-session.md',
+    '02-streaming.md',
+    '03-local-tool.md',
+    '04-mcp-safety.md',
+    '05-combine-tools.md',
+    '06-structured-report.md'
+  ]) {
+    const lessonPath = join(contentRoot, 'copilot-sdk', name);
+    let lesson = readFileSync(lessonPath, 'utf8');
+    lesson = lesson.replace(
+      /new SessionConfig\r?\n\{\r?\n(?!\s*Model = selectedModel,)/g,
+      'new SessionConfig\n{\n    Model = selectedModel,\n'
+    );
+    lesson = lesson.replace(
+      /(var ping = await client\.PingAsync\("workshop"\);\r?\n[\s\S]*?Console\.WriteLine\([^;]+?\);\r?\n)(?!\r?\nvar selectedModel)/g,
+      '$1\nvar selectedModel = await ModelSelector.SelectAsync(client);\n'
+    );
+    if (name === '01-first-session.md') {
+      lesson = lesson.replace(
+        /new SessionConfig\(\)/g,
+        'new SessionConfig\n{\n    Model = selectedModel\n}'
+      );
+    }
+    if (name === '01-first-session.md') {
+      const checkpointIndex = lesson.indexOf('<summary>Complete Step 1 checkpoint</summary>');
+      const prefix = lesson.slice(0, checkpointIndex);
+      const checkpoint = lesson
+        .slice(checkpointIndex)
+        .replace('using GitHub.Copilot;', 'using GitHub.Copilot;\nusing HelloCopilotSDK.Helpers;');
+      lesson = `${prefix}${checkpoint}`;
+    }
+    writeFileSync(lessonPath, lesson);
+  }
+
+  const streamingPath = join(contentRoot, 'copilot-sdk', '02-streaming.md');
+  let streaming = readFileSync(streamingPath, 'utf8');
+  const sessionInstruction =
+    'In `Program.cs`, keep `var selectedModel = await ModelSelector.SelectAsync(client);` from Step 1, then replace the session and response code with:';
+  streaming = streaming.replace(
+    'In `Program.cs`, add `using HelloCopilotSDK.Helpers;`, then replace the session and response code\nwith:',
+    sessionInstruction
+  );
+  writeFileSync(streamingPath, streaming);
+};
+
+configureSdkLessonModelSelection();
 
 for (const entry of ['.devcontainer', '.vscode', 'public', 'src']) {
   const source = join(sources.cli, entry);
@@ -533,6 +642,60 @@ for (const entry of ['Directory.Build.props', 'README.md']) {
     join(sources['copilot-sdk'], entry),
     join(labsRoot, '04-copilot-sdk', entry)
   );
+}
+
+const configureSdkModelSelection = (projectDirectory) => {
+  const programPath = join(projectDirectory, 'Program.cs');
+  if (!existsSync(programPath)) return;
+
+  let program = readFileSync(programPath, 'utf8');
+  if (!program.includes('new CopilotClient()')) return;
+
+  const projectFile = readdirSync(projectDirectory).find((entry) => entry.endsWith('.csproj'));
+  if (!projectFile) {
+    throw new Error(`Could not determine the project namespace for ${projectDirectory}`);
+  }
+  const project = readFileSync(join(projectDirectory, projectFile), 'utf8');
+  const rootNamespace = project.match(/<RootNamespace>([^<]+)<\/RootNamespace>/)?.[1];
+  if (!rootNamespace) {
+    throw new Error(`Could not determine the root namespace for ${projectFile}`);
+  }
+
+  const helperNamespace = `${rootNamespace}.Helpers`;
+  if (!program.includes(`using ${helperNamespace};`)) {
+    program = program.replace(
+      'using GitHub.Copilot;',
+      `using GitHub.Copilot;\nusing ${helperNamespace};`
+    );
+  }
+  program = program.replace(
+    /(var ping = await client\.PingAsync\("workshop"\);\r?\n[\s\S]*?Console\.WriteLine\([^;]+?\);\r?\n)(?!\r?\nvar selectedModel)/,
+    '$1\nvar selectedModel = await ModelSelector.SelectAsync(client);\n'
+  );
+  program = program.replace(
+    /new SessionConfig\(\)/g,
+    'new SessionConfig\n{\n    Model = selectedModel\n}'
+  );
+  program = program.replace(
+    /new SessionConfig\r?\n\{\r?\n(?!\s*Model = selectedModel,?)/g,
+    'new SessionConfig\n{\n    Model = selectedModel,\n'
+  );
+  writeFileSync(programPath, program);
+
+  const helpersDirectory = join(projectDirectory, 'Helpers');
+  mkdirSync(helpersDirectory, { recursive: true });
+  writeFileSync(join(helpersDirectory, 'ModelSelector.cs'), modelSelectorSource(rootNamespace));
+};
+
+for (const directory of [
+  ...readdirSync(join(labsRoot, '04-copilot-sdk', 'checkpoints')).map((entry) =>
+    join(labsRoot, '04-copilot-sdk', 'checkpoints', entry)
+  ),
+  ...readdirSync(join(labsRoot, '04-copilot-sdk', 'samples')).map((entry) =>
+    join(labsRoot, '04-copilot-sdk', 'samples', entry)
+  )
+]) {
+  configureSdkModelSelection(directory);
 }
 
 if (temporaryRoot) {

@@ -141,11 +141,51 @@ for (const [index, heading] of [
   'Import the SDK and add a heading',
   'Connect to the Copilot runtime',
   'Confirm the connection',
+  'Choose a model for the session',
   'Create a conversation and send a prompt',
   'Check and print the response'
 ].entries()) {
   if (!firstSdkSession.includes(`### ${index + 1}. ${heading}`)) {
     errors.push(`Missing incremental first-session step: ${heading}`);
+  }
+  if (
+    !firstSdkSession.includes('ModelSelector.SelectAsync(client)') ||
+    !firstSdkSession.includes('Model = selectedModel')
+  ) {
+    errors.push('The first SDK session must teach and configure model selection.');
+  }
+  for (const name of [
+    '02-streaming.md',
+    '03-local-tool.md',
+    '04-mcp-safety.md',
+    '05-combine-tools.md',
+    '06-structured-report.md'
+  ]) {
+    const lesson = readFileSync(join(docsRoot, 'labs', 'copilot-sdk', name), 'utf8');
+    if (!lesson.includes('Model = selectedModel')) {
+      errors.push(`SDK lesson must retain the selected model: ${name}`);
+    }
+  }
+  for (const projectPath of [
+    ...readdirSync(join(root, 'labs', '04-copilot-sdk', 'checkpoints'), {
+      withFileTypes: true
+    })
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => join(root, 'labs', '04-copilot-sdk', 'checkpoints', entry.name)),
+    ...readdirSync(join(root, 'labs', '04-copilot-sdk', 'samples'), {
+      withFileTypes: true
+    })
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => join(root, 'labs', '04-copilot-sdk', 'samples', entry.name))
+  ]) {
+    const programPath = join(projectPath, 'Program.cs');
+    const modelSelectorPath = join(projectPath, 'Helpers', 'ModelSelector.cs');
+    if (
+      !existsSync(modelSelectorPath) ||
+      !readFileSync(programPath, 'utf8').includes('Model = selectedModel')
+    ) {
+      errors.push(`SDK runnable project must retain model selection: ${projectPath}`);
+    }
   }
 }
 

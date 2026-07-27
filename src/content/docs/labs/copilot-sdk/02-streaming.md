@@ -76,12 +76,12 @@ the task with an exception instead of looking like a successful turn.
 
 ### 2. Use the helper
 
-In `Program.cs`, add `using HelloCopilotSDK.Helpers;`, then replace the session and response code
-with:
+In `Program.cs`, keep `var selectedModel = await ModelSelector.SelectAsync(client);` from Step 1, then replace the session and response code with:
 
 ```csharp
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
+    Model = selectedModel,
     Streaming = true
 });
 
@@ -151,8 +151,11 @@ await client.StartAsync();
 var ping = await client.PingAsync("workshop");
 Console.WriteLine($"Connected to the Copilot runtime: {ping.Message}\n");
 
+var selectedModel = await ModelSelector.SelectAsync(client);
+
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
+    Model = selectedModel,
     Streaming = true
 });
 
