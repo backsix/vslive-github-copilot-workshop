@@ -8,3 +8,4 @@ labs/**/bin/
 labs/**/obj/
 labs/**/dist/
 /labs/03-visual-studio/src/.vs/
+.playwright-mcp/
