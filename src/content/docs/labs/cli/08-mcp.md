@@ -2,9 +2,6 @@
 title: "Part 8: MCP Servers — Connect Copilot to Live Data & Tools"
 ---
 
-> [!NOTE]
-> This VS Live edition follows the **Copilot CLI track only**. The pinned starter is included at `labs/01-copilot-cli`.
-
 
 # Part 8: MCP Servers — Connect Copilot to Live Data & Tools
 

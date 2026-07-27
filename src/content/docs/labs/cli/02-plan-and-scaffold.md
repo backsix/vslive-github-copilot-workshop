@@ -2,9 +2,6 @@
 title: "Part 2: Plan & Scaffold"
 ---
 
-> [!NOTE]
-> This VS Live edition follows the **Copilot CLI track only**. The pinned starter is included at `labs/01-copilot-cli`.
-
 
 # Part 2: Plan & Scaffold
 

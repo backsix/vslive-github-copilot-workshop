@@ -2,9 +2,6 @@
 title: "Part 7: Skills — Packaged, Reusable Expertise"
 ---
 
-> [!NOTE]
-> This VS Live edition follows the **Copilot CLI track only**. The pinned starter is included at `labs/01-copilot-cli`.
-
 
 # Part 7: Skills — Packaged, Reusable Expertise
 

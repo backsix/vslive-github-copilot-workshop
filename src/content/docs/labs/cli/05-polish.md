@@ -2,9 +2,6 @@
 title: "Part 5: Polish & Parallel Work"
 ---
 
-> [!NOTE]
-> This VS Live edition follows the **Copilot CLI track only**. The pinned starter is included at `labs/01-copilot-cli`.
-
 
 # Part 5: Polish & Parallel Work
 

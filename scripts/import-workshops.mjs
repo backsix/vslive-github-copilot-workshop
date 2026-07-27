@@ -159,8 +159,6 @@ importMarkdownDirectory(
   {
     indexFile: '00-overview.md',
     removeTrack: 'vscode',
-    intro:
-      '> [!NOTE]\n> This VS Live edition follows the **Copilot CLI track only**. The pinned starter is included at `labs/01-copilot-cli`.',
     replacements: [
       [
         /> \*\*Duration:\*\*.*$/m,
