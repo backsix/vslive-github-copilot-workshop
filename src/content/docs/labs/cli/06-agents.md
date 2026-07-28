@@ -53,33 +53,23 @@ In Part 1 you generated `.github/copilot-instructions.md` with `/init`. That fil
 
 ### Task 1: Add Scoped Instructions
 
-Create `.github/instructions/astro.instructions.md`:
+Ask Copilot to create scoped instruction files:
 
-```markdown
----
-applyTo: "**/*.astro"
----
-# Astro Component Standards
+```text
+Create two instruction files in `.github/instructions/`:
 
-- Keep client-side logic in a single `<script>` block using TypeScript.
-- Use typed interfaces for all API response data — never `any`.
-- Preserve the retro arcade aesthetic: dark background (`#0a0a1a`),
-  green (`#5fed83`) and purple (`#8a2be2`) accents, Press Start 2P font.
-- New UI must keep the neon look and be keyboard accessible.
+1. `astro.instructions.md` - Applies to all Astro files (**/*.astro)
+   - Should cover Astro component standards, TypeScript in scripts, neon arcade theme
+   - Dark background (#0a0a1a), green (#5fed83), purple (#8a2be2) accents, Press Start 2P font
+   - Keyboard accessibility requirements
+
+2. `typescript.instructions.md` - Applies to all TypeScript files (**/*.ts)
+   - Should cover error handling with try/catch blocks
+   - Typed request/response interfaces for API routes
+   - RESTful conventions for endpoints in src/pages/api/
 ```
 
-Create `.github/instructions/typescript.instructions.md`:
-
-```markdown
----
-applyTo: "**/*.ts"
----
-# TypeScript & API Standards
-
-- Wrap all async calls in try/catch and return meaningful error messages.
-- Use typed request/response interfaces for API routes.
-- Follow RESTful conventions for endpoints under `src/pages/api/`.
-```
+After Copilot creates the instruction files, use `/diff` to review what was generated.
 
 **How `applyTo` works:**
 
@@ -95,6 +85,7 @@ applyTo: "**/*.ts"
 
 Run `/instructions` to see which instruction files are currently loaded and toggle any on or off. Copilot CLI reads instructions from `AGENTS.md`, `.github/copilot-instructions.md`, and `.github/instructions/**/*.instructions.md` automatically.
 
+You may have to run `/restart` to reload Copilot's context and pick up the new files.
 
 
 
@@ -118,73 +109,42 @@ An agent is a Markdown file with a `.agent.md` extension: YAML frontmatter (meta
 
 ### Task 1: Build a Retro UI Reviewer
 
-Create `.github/agents/retro-ui-reviewer.agent.md`:
+Ask Copilot to create `.github/agents/retro-ui-reviewer.agent.md`:
 
-```markdown
----
-name: retro-ui-reviewer
-description: Retro arcade UI specialist for the Mona Mayhem battle page
-tools: ["read", "edit", "search"]
----
-
-# Retro Arcade UI Reviewer
-
-You are a front-end specialist for a retro arcade themed app.
-
-**Your focus areas:**
-- Neon aesthetic: dark background (`#0a0a1a`), green (`#5fed83`) and
-  purple (`#8a2be2`) accents, Press Start 2P font, glow/scanline effects.
-- Animation quality: smooth, purposeful CSS animations that fit an arcade cabinet.
-- Consistency: every new UI element should match the existing theme.
-
-**When reviewing, always check:**
-- Hardcoded colors that drift from the palette
-- Missing hover/focus states on interactive elements
-- Animations that are too fast, too slow, or distracting
-- Layout that breaks the arcade vibe
+```text
+Create a custom agent at `.github/agents/retro-ui-reviewer.agent.md` that specializes in reviewing UI for retro arcade themes. It should focus on neon aesthetics (dark #0a0a1a, green #5fed83, purple #8a2be2), animation quality, consistency, and how new elements match the arcade theme.
 ```
 
 ### Task 2: Build an Accessibility Auditor
 
-Create `.github/agents/a11y-auditor.agent.md`:
+Ask Copilot to create `.github/agents/a11y-auditor.agent.md`:
 
-```markdown
----
-name: a11y-auditor
-description: Accessibility specialist that audits the battle page for WCAG issues
-tools: ["read", "edit", "search"]
----
-
-# Accessibility Auditor
-
-You are an accessibility expert focused on WCAG 2.1 AA compliance.
-
-**Always check for:**
-- Keyboard navigation and visible focus states (Enter triggers battle)
-- Color contrast against the dark neon background
-- ARIA labels on inputs, buttons, and dynamic result regions
-- Screen-reader announcements when results load or errors appear
-- Respecting `prefers-reduced-motion` for the heavy animations
-
-**Output:** a numbered list of issues tagged [CRITICAL] / [HIGH] / [MEDIUM] / [LOW]
-with a concrete fix for each.
+```text
+Create a custom agent at `.github/agents/a11y-auditor.agent.md` that audits for WCAG 2.1 AA compliance, checking keyboard navigation, color contrast, ARIA labels, screen-reader announcements, and prefers-reduced-motion support.
 ```
+
+After Copilot creates the agent files, use `/diff` to review what was generated.
 
 ### Task 3: Put Your Specialists to Work
 
 
 List and switch agents with `/agent`, or launch straight into one:
 
-```bash
-copilot --agent a11y-auditor
-> Audit @src/pages/index.astro for accessibility issues.
+```text
+/agent a11y-auditor
+```
+
+```text
+Audit @src/pages/index.astro for accessibility issues.
 ```
 
 To switch mid-session, run `/agent` again and pick another specialist (or **no agent** to return to the default experience). Agent selection is **session-scoped** — a new session starts fresh.
 
 ```text
-/agent
-# select "retro-ui-reviewer"
+/agent retro-ui-reviewer
+```
+
+```
 Review the battle page styling and flag anything that drifts from the arcade theme.
 ```
 
