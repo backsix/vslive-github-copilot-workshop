@@ -44,6 +44,8 @@ For extra quality gates, run the other built-in review agents too:
 /rubber-duck Critique my battle logic and error handling for edge cases I may have missed.
 ```
 
+> 📝 The rubber duck agent is currently only available if the main agent is using a Claude or GPT large language model.
+
 ```text
 /security-review
 ```
