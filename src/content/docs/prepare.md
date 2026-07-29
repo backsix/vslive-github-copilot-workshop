@@ -89,4 +89,4 @@ Before arriving, confirm:
 4. You cloned the workshop repository and can find its three included starter folders.
 5. You can access the separate Tailspin Toys template repository.
 
-When everything is ready, [begin with the Copilot CLI lab](./labs/cli/).
+When everything is ready, [begin with the Copilot CLI lab](/labs/cli/).
