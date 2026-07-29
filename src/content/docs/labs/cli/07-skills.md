@@ -54,45 +54,33 @@ Your guidelines, steps, and examples go here.
 
 Mona Mayhem uses **Conventional Commits** (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`). Instead of remembering the format every time, package it as a skill.
 
-### Task 1: Write the Skill
+### Task 1: Generate the Skill
 
-Create `.github/skills/commit-message/SKILL.md`:
+Ask Copilot to create the commit message skill:
 
-```markdown
----
-name: commit-message
-description: Generate a Conventional Commit message from staged git changes for the Mona Mayhem project
----
+```text
+Create a skill at .github/skills/commit-message/SKILL.md that teaches Copilot to generate Conventional Commit messages for the Mona Mayhem project.
 
-# Commit Message Generator
-
-Write a single Conventional Commit message summarizing the staged changes.
-
-## Format
-`<type>(<optional scope>): <short summary>`
-
-## Types
-- `feat` — a new feature (e.g., winner banner, streak counter)
-- `fix` — a bug fix
-- `docs` — documentation only
-- `refactor` — code change that neither fixes a bug nor adds a feature
-- `test` — adding or updating tests
-- `chore` — tooling, deps, or config
-
-## Rules
-- Summary in the imperative mood, lower case, no trailing period, ≤ 72 chars.
-- Add a short body only when the "why" isn't obvious from the summary.
-- Prefer a scope that matches the area touched (e.g., `battle`, `api`, `theme`).
+The skill should:
+- Have description: "Generate a Conventional Commit message from staged git changes for the Mona Mayhem project"
+- Explain the format: <type>(<optional scope>): <short summary>
+- List the types: feat (new feature), fix (bug fix), docs (documentation), refactor (code change), test (tests), chore (tooling/deps)
+- Rules: imperative mood, lowercase, no trailing period, ≤72 chars, scope matches area touched (e.g., battle, api, theme)
 ```
+
+Copilot will create the folder and `SKILL.md` with the correct format.
 
 ### Task 2: Watch It Auto-Trigger
 
-Make a small change and stage it, then ask for a commit message in plain language — **don't** name the skill:
+Make a small change and stage it, then ask for a commit message in plain language — **don't** name the skill.
+
+Use `!` to enter shell mode.
 
 ```bash
 git add -A
 ```
 
+You may have to run `/skills reload` to reload skills from disk.
 
 ```text
 Write a commit message for my staged changes.
@@ -111,36 +99,22 @@ Copilot matches your prompt to the `commit-message` skill's description and appl
 
 Now package a quality bar for new UI so every component meets the same standard.
 
-Create `.github/skills/component-checklist/SKILL.md`:
+Ask Copilot to create the component checklist skill:
 
-```markdown
----
-name: component-checklist
-description: Quality checklist for reviewing Astro/TypeScript UI in the Mona Mayhem battle app
-argument-hint: file path or component to check
----
+```text
+Create a skill at .github/skills/component-checklist/SKILL.md for reviewing Astro/TypeScript UI in the Mona Mayhem battle app.
 
-# Component Checklist
-
-When reviewing a component or page, check:
-
-## Accessibility
-- Keyboard navigable, visible focus states, Enter triggers the battle
-- ARIA labels on inputs, buttons, and dynamic result regions
-- Respects `prefers-reduced-motion`
-
-## Theme
-- Uses palette (`#0a0a1a`, `#5fed83`, `#8a2be2`) and Press Start 2P font
-- Hover/focus states on interactive elements
-
-## Code Quality
-- Typed interfaces for API data — no `any`
-- Async calls wrapped in try/catch with clear error messages
-- No dead code or leftover console logs
-
-## Output
-Numbered list of issues tagged [CRITICAL] / [HIGH] / [MEDIUM] / [LOW], each with a fix.
+The skill should:
+- Have name: component-checklist
+- Have description: "Quality checklist for reviewing Astro/TypeScript UI in the Mona Mayhem battle app"
+- Have argument-hint: "file path or component to check"
+- Check accessibility: keyboard navigation, focus states, Enter triggers battle, ARIA labels, prefers-reduced-motion
+- Check theme: palette (#0a0a1a, #5fed83, #8a2be2), Press Start 2P font, hover/focus states
+- Check code quality: typed interfaces (no any), async wrapped in try/catch, no dead code or console logs
+- Output: numbered list of issues tagged [CRITICAL] / [HIGH] / [MEDIUM] / [LOW] with fixes
 ```
+
+You may have to run `/skills reload` to reload skills from disk.
 
 You can also **invoke a skill directly** by name when you want to force it:
 
@@ -159,17 +133,17 @@ The `argument-hint` you set appears as a placeholder, prompting you for the file
 ## Section 4: Manage & Share Skills
 
 
-Manage skills from inside a session with `/skills`, or from your terminal with the `copilot skill` command:
+Manage skills from inside a session with `/skills`:
 
 ```bash
 # See all installed skills
-copilot skill list
+/skills list
 
 # Add a skill from a local path, directory, or URL
-copilot skill add ./.github/skills/commit-message
+/skills add ./.github/skills/commit-message
 
 # Remove a skill by name
-copilot skill remove commit-message
+/skills remove commit-message
 ```
 
 Inside a session, `/skills` opens the manager and `/skills reload` re-reads your skill files after you edit them.
