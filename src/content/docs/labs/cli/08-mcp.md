@@ -55,19 +55,16 @@ The GitHub server is one of many. Let's add the **Playwright MCP server** so Cop
 ### Task 1: Configure the Server
 
 
-The easiest path is the built-in registry — run `/mcp` and use the search/add flow, no JSON required. To configure it by hand instead, create `.mcp.json` in your project root:
+You can connect MCP servers to your project by asking Copilot to create `mcp.json` in your project's .github folder:
 
-```json
-{
-  "mcpServers": {
-    "playwright": {
-      "type": "local",
-      "command": "npx",
-      "args": ["-y", "@playwright/mcp@latest"],
-      "tools": ["*"]
-    }
-  }
-}
+```text
+Create a mcp.json configuration file in the ./.github folder that adds the Playwright MCP server.
+
+The server should:
+- type: local
+- command: npx
+- args: ["-y", "@playwright/mcp@latest"]
+- enable all tools with ["*"]
 ```
 
 Copilot CLI reads MCP config from `.mcp.json` and `.github/mcp.json` in your project, or `~/.copilot/mcp-config.json` for all projects. Restart Copilot after editing, then run `/mcp` to confirm **playwright** is enabled.
@@ -101,21 +98,19 @@ validation error appears with the arcade styling.
 Model training data goes stale. The **Context7 MCP server** fetches current library documentation on demand — handy for Astro APIs.
 
 
-Add it to your `.mcp.json`:
+Add it to your `mcp.json`:
 
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "type": "local",
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"],
-      "tools": ["*"]
-    }
-  }
-}
+```text
+Add the Context7 MCP server to my ./.github/mcp.json configuration.
+
+The server should:
+- type: local
+- command: npx
+- args: ["-y", "@upstash/context7-mcp"]
+- enable all tools with ["*"]
 ```
 
+Reload your MCP servers with `/mcp reload`.
 
 
 
@@ -140,11 +135,11 @@ Then give me a short go/no-go summary.
 ```
 
 
-**Managing servers.** Use `/mcp` inside a session, or the `copilot mcp` command from your terminal:
+**Managing servers.** Use `/mcp` inside a session:
 
 ```bash
-copilot mcp list       # list configured servers
-copilot mcp add        # add a server through a guided flow
+/mcp list       # list configured servers
+/mcp add        # add a server through a guided flow
 ```
 
 You can also install servers and their skills in one step with `/plugin install <owner>/<repo>` (for example, `microsoftdocs/mcp` for Microsoft Learn docs).
