@@ -54,7 +54,7 @@ The simplest option on every platform is the official installer:
 
 You'll work against your own copy of the Tailspin Toys project. Create it now from the [template repository][template-repository]. The new repository contains every file the lab needs, and you'll connect it to the app in the next lesson.
 
-1. In a new browser window, navigate to the GitHub repository for this lab: `https://github.com/github-samples/tailspin-toys`.
+1. In a new browser window, navigate to the GitHub repository for this lab: [https://github.com/github-samples/tailspin-toys](https://github.com/github-samples/tailspin-toys).
 2. Create your own copy of the repository by selecting the **Use this template** button on the lab repository page. Then select **Create a new repository**.
 
     ![The Use this template button with Create a new repository selected from the dropdown](../_images/app-0-use-template.png)
