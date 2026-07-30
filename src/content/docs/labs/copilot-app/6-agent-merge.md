@@ -32,20 +32,18 @@ You've reviewed the code manually, run tests, and even allowed Copilot to valida
 2. In the upper right-hand corner, select the dropdown next to **Create PR**.
 3. Select **Agent merge** to enable agent merge.
 
-   ![The Create PR dropdown in the GitHub Copilot app expanded, with an arrow pointing to the Agent merge option](../_images/app-enable-agent-merge.png)
+   ![The Create PR dropdown in the GitHub Copilot app expanded, with an arrow pointing to the Agent merge option](../_images/app-agent-merge-toggle.png)
 
 4. The button text now changes to **Agent merge**.
-5. Select the **Agent merge** button to start the agent merge process.
+5. Select the **Agent merge** button to view options the agent can take to manage the PR, like checking its merge status, CI check status, and if there are any unresolved comments.
 
-Copilot app then begins the process of creating and managing the PR! It starts by exploring the project to determine how best to create a PR, followed by creating the new PR.
-
-After a few moments, you'll notice Copilot starts work again, looking at the PR conditions - the CI process of running all the tests on your repository. It will report back status on any reviews left by other team members, any checks that need to run (the CI process), and if the PR is mergeable.
-
-6. Allow agent merge to merge the pull request by selecting the dropdown next to **Agent merge** then **Merge pull request**.
+  ![The Agent merge panel](../_images/app-agent-merge-check.png)
+   
+7. Allow agent merge to merge the pull request by selecting the dropdown next to **Agent merge** then **Merge pull request**.
 
    ![The Agent merge dropdown showing the agent's allowed actions — Address reviews, Fix CI failures, Resolve conflicts — with an arrow pointing to Merge pull request](../_images/app-agent-merge-merge.png)
 
-7. Once all CI processes are green (meaning the tests passed), Copilot will merge the pull request!
+8. Once all CI processes are green (meaning the tests passed), Copilot will merge the pull request!
 
 ## Summary and next steps
 
