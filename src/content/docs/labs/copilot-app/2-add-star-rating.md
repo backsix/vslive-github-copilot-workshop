@@ -39,7 +39,7 @@ Let's start a new session to begin exploring the project and implementing our fe
 4. Use the following prompt to request the change:
 
    ```plaintext
-   On the game cards, show each game's star rating. The Game type already includes a starRating field — it's a number out of 5, or null when a game hasn't been rated yet. Display it on each card in src/components/GameCard.astro, and when starRating is null show "No rating yet" instead. Keep the change small and don't restructure the card layout.
+   On the game cards, show each game's star rating. The Game type already includes a starRating field — it's a number out of 5, or null when a game hasn't been rated yet. Display it on each card in @src/components/GameCard.astro, and when starRating is null show "No rating yet" instead. Keep the change small and don't restructure the card layout.
    ```
 
 > [!NOTE]
@@ -88,7 +88,7 @@ Of course we shouldn't just read the code and assume it works. We should visuall
    npm run dev
    ```
 
-3. Once the server starts (this will just take a moment), open a browser window.
+3. Once the server starts (this will just take a moment), in the review panel on the right side of Copilot app, select the **+**, then select **Browser**.
 4. Navigate to http://localhost:4321.
 5. You should now see star ratings on all the games on the landing page!
 6. Return to the terminal window.
