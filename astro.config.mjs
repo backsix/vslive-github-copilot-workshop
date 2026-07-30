@@ -69,7 +69,7 @@ export default defineConfig({
             { label: 'Playwright MCP', link: '/labs/copilot-app/5-mcp-playwright/' },
             { label: 'Agent Merge', link: '/labs/copilot-app/6-agent-merge/' },
             { label: 'Canvases', link: '/labs/copilot-app/7-canvases/' },
-            { label: 'Review', link: '/labs/copilot-app/8-review/' }
+            { label: 'Automations', link: '/labs/copilot-app/8-automations/' }
           ]
         },
         {

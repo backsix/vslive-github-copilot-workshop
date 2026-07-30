@@ -60,14 +60,11 @@ Take a moment to read the instruction files this repository ships with — there
    ![The GitHub Copilot app top toolbar with an arrow pointing to the Toggle review panel button to the right of Create PR](../_images/app-2-review-panel.png)
 
 2. Select the **+** to add a new item to the review panel.
-3. Select **File**.
-4. Search for `copilot-instructions.md`.
+3. Select **Files**.
+4. Search for `copilot-instructions.md`. If it doesn't come up, you may have to enable showing hidden files. Click the settings button to the right and then select **Show hidden files**.
 5. Select  `copilot-instructions.md` from the list of files to open it.
 6. Explore the file, noting the brief description of the project plus sections such as **Agent notes**, **Code standards**, **Scripts**, and **Repository Structure**. Under **Code standards**, note the nested **GitHub Actions Workflows** guidance. These are applicable to any interactions you'd have with Copilot.
-7. Select **Show folder view** to open the folder navigator.
-
-   ![The Show folder view button in the review panel with a file open in the GitHub Copilot app](../_images/app-show-folder-view.png)
-
+7. Clear the search box.
 8. Navigate to the `.github/instructions` folder and explore the files. Note there are instructions for Astro files, the Drizzle data layer, tests, and more.
 9. Open `.github/instructions/unit-tests.instructions.md`. Note the `applyTo` field at the top — this sets a glob (relative to the repo root) that determines which files the instructions apply to. Here, any TypeScript test file (for example, one matching `**/*.test.ts`) will match.
 10. Note the instructions specific to creating unit tests for this project.

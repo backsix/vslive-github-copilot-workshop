@@ -105,7 +105,7 @@ All AI-generated code needs review before it's merged. Let's both review the cod
    npm run dev
    ```
 
-5. Once the server starts (this will just take a moment), open a browser window.
+5. Once the server starts (this will just take a moment), in the review panel on the right side of Copilot app, select the **+**, then select **Browser**.
 6. Navigate to http://localhost:4321.
 7. You should now see filters available on the landing page!
 8. If anything doesn't look right, you can ask Copilot to make the updates!
@@ -141,7 +141,7 @@ Let's explore the skill to see what it does.
    ![The GitHub Copilot app top toolbar with an arrow pointing to the Toggle review panel button to the right of Create PR](../_images/app-2-review-panel.png)
 
 2. Select the **+** to add a new item to the review panel.
-3. Select **File**.
+3. Select **Files**.
 4. Search for `SKILL.md`.
 5. Select `SKILL.md .github/skills/quality-checks` from the list of files to open it.
 6. Note the `name` and `description`. The description tells the agent *when* to use it — whenever code changes need to be tested, linted, or verified before a commit, push, or merge.

@@ -42,7 +42,7 @@ To use the GitHub Copilot app the first step, as you might imagine, is to instal
 With your project connected, take a moment to learn your way around. The app organizes everything into a few areas in the sidebar:
 
 - **Sessions** — where agents do their work. Each session runs in its own isolated workspace, so you can run several at once without their changes colliding. You'll start your first session in the next lesson.
-- **Quick chats** — lightweight conversations for questions and brainstorming that don't need a branch or workspace of their own. You'll try one at the end of this lesson.
+- **Chats** — lightweight conversations for questions and brainstorming that don't need a branch or workspace of their own. You'll try one at the end of this lesson.
 - **My work** — your issues and pull requests, surfaced through the app's **native GitHub integration**. From here you can browse and filter issues and pull requests, check CI status, start a session from an issue, and review pull requests — all without leaving the app.
 - **Automations** — saved agent tasks that run on a schedule or on demand. You'll create one near the end of the harness.
 
@@ -66,7 +66,7 @@ Because the app integrates with GitHub natively, the work waiting in your reposi
 
 A great way to get comfortable with the app is to use it to learn about the *app itself* — and a **quick chat** is exactly the right tool for that. Quick chats let you ask a question or brainstorm without creating a branch or worktree, so they're perfect for a fast, throwaway question — no session required.
 
-1. In the sidebar, select **+** next to **Quick chats** to open a new chat.
+1. In the sidebar, select **+** next to **Chats** to open a new chat.
 2. Ask the app how its own sessions work:
 
    ```plaintext
