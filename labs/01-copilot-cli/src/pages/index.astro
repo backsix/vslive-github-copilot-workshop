@@ -8,10 +8,73 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Mona Mayhem</title>
+		<title>Mona Mayhem - GitHub Contribution Battle Arena</title>
+		<link rel="stylesheet" href="/styles/battle.css">
+		<style>
+			:root { --max-w: 880px; --accent: #30a14e; --bg: #0f1724; --card: #0b1220; }
+			body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin: 0; background: #081024; color: #e6eef8; }
+			head, main, footer { display: block; }
+			.container { max-width: var(--max-w); margin: 36px auto; padding: 24px; }
+			header { text-align: center; margin-bottom: 18px; }
+			h1 { margin: 0; font-size: 1.8rem; }
+			.tagline { margin: 6px 0 0; color: #9fb6d8; }
+
+			.battle-form { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; align-items: start; }
+			.player { background: rgba(255,255,255,0.02); padding: 12px; border-radius: 8px; }
+			.player label { display: block; font-weight: 600; margin-bottom: 8px; color: #cfe6ff; }
+			.player input { width: 100%; padding: 8px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.06); background: transparent; color: inherit; }
+			.controls { grid-column: 1 / -1; display:flex; justify-content: center; }
+			.battle-button { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; cursor: default; }
+
+			.results { margin-top: 20px; padding: 16px; min-height: 180px; background: rgba(255,255,255,0.01); border-radius: 8px; border: 1px dashed rgba(255,255,255,0.03); color: #dbeffd; }
+
+			/* contrib grid and player panel styles */
+			.battle-results { display:flex; gap: 20px; align-items: center; justify-content: center; }
+			.player-panel { display:flex; flex-direction:column; gap:8px; align-items:center; }
+			.player-header { text-align:center; }
+			.player-meta { font-size:0.9rem; color:#a9c8e8; }
+			.contrib-grid { display: grid; grid-auto-flow: column; grid-auto-columns: 12px; grid-template-rows: repeat(7, 12px); gap: 4px; }
+			.contrib-grid .day { width: 12px; height: 12px; border-radius: 2px; box-shadow: inset 0 -1px rgba(0,0,0,0.15); }
+			.vs-badge { font-weight: 900; color: #0b1220; background: var(--accent); padding: 8px 12px; border-radius: 6px; }
+			.error { color: #ffb3b3; font-weight:600; }
+
+			@media (max-width: 640px) {
+				.battle-form { grid-template-columns: 1fr; }
+				.container { padding: 16px; }
+				.battle-results { flex-direction: column; gap: 12px; }
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Mona Mayhem</h1>
-		<p>Welcome to Mona Mayhem! Time to build a GitHub Contribution Battle Arena.</p>
+		<header class="container">
+			<h1>Mona Mayhem</h1>
+			<p class="tagline">GitHub Contribution Battle Arena</p>
+		</header>
+		<main class="container">
+			<form class="battle-form" aria-label="Battle form" on:submit="return false;">
+				<div class="player">
+					<label for="player1">Player 1</label>
+					<input id="player1" name="player1" type="text" placeholder="github-username" />
+				</div>
+
+				<div class="player">
+					<label for="player2">Player 2</label>
+					<input id="player2" name="player2" type="text" placeholder="github-username" />
+				</div>
+
+				<div class="controls">
+					<button type="button" class="battle-button">Battle</button>
+				</div>
+			</form>
+
+			<section id="results" class="results" aria-live="polite">
+				<!-- Results will be rendered here in a later step -->
+			</section>
+		</main>
+		<footer class="container">
+			<p style="color:#9fb6d8;">Workshop template — follow the workshop docs in README to continue building.</p>
+		</footer>
+
+		<script type="module" src="/scripts/battle.js"></script>
 	</body>
 </html>

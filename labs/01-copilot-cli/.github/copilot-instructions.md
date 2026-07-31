@@ -16,7 +16,16 @@ Purpose: Provide repository-scoped guidance for Copilot CLI/agents so future ses
 
 Notes:
 - No test runner or linter is configured in package.json. There are no npm scripts for `test` or `lint` in this repo.
-- To exercise a single dynamic route (API): start dev and curl the endpoint, e.g.: `curl http://localhost:3000/api/contributions/<username>` — the current implementation returns 501 (stub).
+- To exercise a single dynamic route (API): start dev and curl the endpoint, e.g.: `curl http://localhost:3000/api/contributions/<username>`.
+  - Response shape (success):
+    {
+      "username": "octocat",
+      "generated_at": "2026-07-31T10:00:00.000Z",
+      "cached": false,
+      "data": { /* upstream JSON from https://github.com/{username}.contribs */ }
+    }
+  - Errors: 400 (invalid username), 404 (not found), 429 (rate limited), 502/504 (upstream/network errors)
+  - The route now implements a 10-minute in-memory cache and supports an optional GITHUB_TOKEN env var for higher rate limits.
 
 ---
 
@@ -25,7 +34,7 @@ Notes:
 - Runtime & deployment model:
   - astro.config.mjs sets `output: 'server'` and uses the Node adapter in standalone mode — app runs server-side (SSR) and exposes API routes.
 - Routing & structure:
-  - Pages and routes live under `src/pages/`. Files map directly to routes (including dynamic routes like `src/pages/api/contributions/[username].ts`).
+  - Pages and routes live under `src/pages/`. Files map directly to routes (including dynamic routes like `src/pages/api/contributions/[username].ts`). The main app scaffold lives at `src/pages/index.astro` and includes a simple Battle page scaffold (two username inputs, Battle button placeholder, and a results container). 
   - API endpoints are implemented as Astro APIRoute handlers (TypeScript files exporting HTTP methods such as `GET`).
   - Static assets and simple public files are in `public/` and served from root.
 - Workshop / documentation:
